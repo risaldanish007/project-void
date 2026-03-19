@@ -1,0 +1,19 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Mr+De+Haviland&display=swap');
+
+/* The 'VOID' Font - Massive and Blocky */
+h1 {
+  font-family: 'Archivo Black', sans-serif;
+  /* This creates that 'TS Block' overlapping letter feel */
+  letter-spacing: -0.08em; 
+}
+
+/* The 'energy' Font - Thin and Script */
+.font-script {
+  font-family: 'Mr De Haviland', cursive;
+  /* Tilt it slightly like your drawing */
+  transform: rotate(-5deg) translateY(15px);
+}
+
+
+@import "tailwindcss";

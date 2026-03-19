@@ -1,0 +1,67 @@
+{
+  "users": [
+    {
+      "id": "8f23",
+      "name": "abc",
+      "email": "abc@gmail.com",
+      "password": "abc"
+    },
+    {
+      "id": "9563",
+      "name": "a",
+      "email": "a@gmail.com",
+      "password": "abc"
+    },
+    {
+      "id": "34fa",
+      "name": "q",
+      "email": "q@gmail.com",
+      "password": "123"
+    },
+    {
+      "id": "3562",
+      "name": "zxc",
+      "email": "zxcv@gmail.com",
+      "password": "0987"
+    },
+    {
+      "id": "2120",
+      "name": "asdfg",
+      "email": "asdfg@gmail.com",
+      "password": "123qwe"
+    },
+    {
+      "id": "a3d9",
+      "name": "sura",
+      "email": "sura@gmail.com",
+      "password": "1234567890"
+    }
+  ],
+  "products": [
+    {
+      "id": "p1",
+      "name": "VOID Zero",
+      "description": "Maximum focus. Zero sugar. Engineered for deep-work sessions.",
+      "price": 25,
+      "image": "https://images.unsplash.com/photo-1622543925917-763c34d15384?q=80&w=400&h=400&auto=format&fit=crop",
+      "category": "Energy"
+    },
+    {
+      "id": "p2",
+      "name": "SIGNAL Pulse",
+      "description": "Rapid response electrolytes. For when the deadline is in an hour.",
+      "price": 30,
+      "image": "https://images.unsplash.com/photo-1527963842125-33c7fcaec594?q=80&w=400&h=400&auto=format&fit=crop",
+      "category": "Energy"
+    },
+    {
+      "id": "p3",
+      "name": "GHOST Logic",
+      "description": "Translucent citrus blend. Tastes like a clean compile.",
+      "price": 28,
+      "image": "https://images.unsplash.com/photo-1543258103-a62bdc069871?q=80&w=400&h=400&auto=format&fit=crop",
+      "category": "Energy"
+    }
+  ],
+  "$schema": ["./node_modules/json-server/schema.json"]
+}
