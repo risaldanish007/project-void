@@ -3,7 +3,7 @@ import apiClient from '../api/apiClient';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { addToCart } from '../store/cartSlice';
-
+// import CanViewer from '../components/layout/CanModel';
 
 const Home = () => {
   // Fetching the goods from the VOID server
@@ -20,7 +20,24 @@ const Home = () => {
   if (isError) return <div className="text-center mt-20 text-red-500">Signal lost. Check your database connection.</div>;
 
   return (
-    <div className="max-w-7xl mx-auto px-4">
+<div className="home-page-wrapper">
+  {/* Added pt-24 to clear navbar and changed h-screen to min-h-[90vh] for better flow */}
+  <section className="section-hero min-h-[90vh] pt-0 flex flex-col items-center justify-center relative">
+    
+    <div className="text-center z-10">
+      <h1 className="text-6xl md:text-5xl font-black tracking-tighter text-gray-400 uppercase italic mb-10">
+        Pure Signal.
+      </h1>
+    </div>
+
+    {/* Adjust CanViewer to sit relative to this header */}
+    <div className="w-full h-[50vh] mt-[-50px]"> 
+      {/* <CanViewer /> */}
+    </div>
+
+  </section>
+
+  <div className="max-w-7xl mx-auto px-4">
       {/* Hero Section */}
       <header className="text-center py-16">
         <h1 className="text-6xl font-black tracking-tighter text-gray-400 uppercase italic italic">Pure Signal . No Noise .</h1>
@@ -59,6 +76,14 @@ const Home = () => {
           </div>
         ))}
       </div>
+      {/* <section className="product-description-layer">
+        <h2>About VOID Energy</h2>
+        <p>
+          Experience the ultimate energy surge with VOID ZERO. 
+          Zero sugar, maximum focus, and a taste that defies gravity.
+        </p>
+      </section> */}
+    </div>
     </div>
   );
 };

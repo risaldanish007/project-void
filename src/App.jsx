@@ -9,6 +9,7 @@ import Home from "./pages/Home";
 import ProductDetail from "./pages/ProductDetail";
 import Cart from "./pages/Cart";
 import Checkout from "./pages/Checkout";
+import Success from "./pages/Success";
 
 // const Home = () => <div><h2>Welcome to VOID ENERGY</h2><p>Home of pure signal</p></div>;
 // const Login = () => <div><h2>Login Page</h2><p>enter FLOWSTATE</p></div>;
@@ -42,6 +43,13 @@ function App(){
                 <ProtectedRoute>
                   <Checkout/>
                 </ProtectedRoute>          
+              }/>
+              <Route
+              path="/success"
+              element={
+                <ProtectedRoute>
+                  <Success/>
+                </ProtectedRoute>
               }/>
           </Routes>
         </div>

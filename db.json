@@ -1,40 +1,187 @@
 {
   "users": [
     {
-      "id": "8f23",
-      "name": "abc",
-      "email": "abc@gmail.com",
-      "password": "abc"
+      "id": "5063",
+      "name": "Risal",
+      "email": "risaldanish@gmail.com",
+      "password": "1234567890",
+      "role": "user",
+      "cart": {
+        "items": [
+          {
+            "id": "p1",
+            "name": "VOID Zero",
+            "price": 25,
+            "quantity": 1,
+            "totalItemPrice": 25,
+            "image": "/images/void-zero.png"
+          }
+        ],
+        "totalQuantity": 1,
+        "totalPrice": 25
+      },
+      "orders": [
+        {
+          "id": "VOID-2240",
+          "items": [
+            {
+              "id": "p1",
+              "name": "VOID Zero",
+              "price": 25,
+              "quantity": 1,
+              "totalItemPrice": 25,
+              "image": "/images/void-zero.png"
+            }
+          ],
+          "total": 25,
+          "paymentId": "pay_SVqeFlYd8QxwQn",
+          "status": "Deployed",
+          "date": "2026-03-26"
+        },
+        {
+          "id": "VOID-4442",
+          "items": [
+            {
+              "id": "p1",
+              "name": "VOID Zero",
+              "price": 25,
+              "quantity": 1,
+              "totalItemPrice": 25,
+              "image": "/images/void-zero.png"
+            }
+          ],
+          "total": 25,
+          "paymentId": "pay_SVquWSQumWt6zS",
+          "status": "Deployed",
+          "date": "2026-03-26"
+        }
+      ]
     },
     {
-      "id": "9563",
-      "name": "a",
-      "email": "a@gmail.com",
-      "password": "abc"
+      "id": "b756",
+      "name": "leo",
+      "email": "messi@gmail.com",
+      "password": "1234567890",
+      "role": "user",
+      "cart": {
+        "items": [],
+        "totalQuantity": 0,
+        "totalPrice": 0
+      },
+      "orders": [
+        {
+          "id": "VOID-8083",
+          "items": [
+            {
+              "id": "p1",
+              "name": "VOID Zero",
+              "price": 25,
+              "quantity": 6,
+              "totalItemPrice": 150,
+              "image": "/images/void-zero.png"
+            },
+            {
+              "id": "p2",
+              "name": "SIGNAL Pulse",
+              "price": 30,
+              "quantity": 4,
+              "totalItemPrice": 120,
+              "image": "https://images.unsplash.com/photo-1527963842125-33c7fcaec594?q=80&w=400&h=400&auto=format&fit=crop"
+            },
+            {
+              "id": "p3",
+              "name": "GHOST Logic",
+              "price": 28,
+              "quantity": 2,
+              "totalItemPrice": 56,
+              "image": "https://images.unsplash.com/photo-1543258103-a62bdc069871?q=80&w=400&h=400&auto=format&fit=crop"
+            }
+          ],
+          "total": 326,
+          "paymentId": "pay_SVqFCgZPThP0wZ",
+          "status": "Deployed",
+          "date": "2026-03-26"
+        }
+      ]
     },
     {
-      "id": "34fa",
-      "name": "q",
-      "email": "q@gmail.com",
-      "password": "123"
+      "id": "4489",
+      "name": "danish",
+      "email": "risaldanish10@gmail.com",
+      "password": "1234567890",
+      "role": "user",
+      "cart": {
+        "items": [
+          {
+            "id": "p1",
+            "name": "VOID Zero",
+            "price": 25,
+            "quantity": 6,
+            "totalItemPrice": 150,
+            "image": "/images/void-zero.png"
+          }
+        ],
+        "totalQuantity": 6,
+        "totalPrice": 150
+      },
+      "orders": [
+        {
+          "id": "VOID-2616",
+          "items": [
+            {
+              "id": "p1",
+              "name": "VOID Zero",
+              "price": 25,
+              "quantity": 1,
+              "totalItemPrice": 25,
+              "image": "/images/void-zero.png"
+            }
+          ],
+          "total": 25,
+          "paymentId": "pay_SVriXIOeU9GMJj",
+          "status": "Deployed",
+          "date": "2026-03-26"
+        }
+      ]
     },
     {
-      "id": "3562",
-      "name": "zxc",
-      "email": "zxcv@gmail.com",
-      "password": "0987"
-    },
-    {
-      "id": "2120",
-      "name": "asdfg",
-      "email": "asdfg@gmail.com",
-      "password": "123qwe"
-    },
-    {
-      "id": "a3d9",
-      "name": "sura",
-      "email": "sura@gmail.com",
-      "password": "1234567890"
+      "id": "727b",
+      "name": "ashif",
+      "email": "ashif@gmail.com",
+      "password": "0",
+      "role": "user",
+      "cart": {
+        "items": [],
+        "totalQuantity": 0,
+        "totalPrice": 0
+      },
+      "orders": [
+        {
+          "id": "VOID-7481",
+          "items": [
+            {
+              "id": "p1",
+              "name": "VOID Zero",
+              "price": 25,
+              "quantity": 4,
+              "totalItemPrice": 100,
+              "image": "/images/void-zero.png"
+            },
+            {
+              "id": "p3",
+              "name": "GHOST Logic",
+              "price": 28,
+              "quantity": 1,
+              "totalItemPrice": 28,
+              "image": "https://images.unsplash.com/photo-1543258103-a62bdc069871?q=80&w=400&h=400&auto=format&fit=crop"
+            }
+          ],
+          "total": 128,
+          "paymentId": "pay_SVs3pex196WLWA",
+          "status": "Deployed",
+          "date": "2026-03-26"
+        }
+      ]
     }
   ],
   "products": [
@@ -43,7 +190,7 @@
       "name": "VOID Zero",
       "description": "Maximum focus. Zero sugar. Engineered for deep-work sessions.",
       "price": 25,
-      "image": "https://images.unsplash.com/photo-1622543925917-763c34d15384?q=80&w=400&h=400&auto=format&fit=crop",
+      "image": "/images/void-zero.png",
       "category": "Energy"
     },
     {
@@ -63,5 +210,5 @@
       "category": "Energy"
     }
   ],
-  "$schema": ["./node_modules/json-server/schema.json"]
+  "$schema": "./node_modules/json-server/schema.json"
 }

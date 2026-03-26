@@ -3,6 +3,8 @@ import { useSelector, useDispatch } from "react-redux";
 import { logout } from "../../store/authSlice";
 import Logo from "./Logo";
 import { useState } from "react";
+import { useEffect } from "react";
+import { clearCart, replaceCart } from "../../store/cartSlice";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -12,6 +14,8 @@ const Navbar = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
+  
+
   const handleLogout = () => {
     dispatch(logout());
     setIsMenuOpen(false);
@@ -19,6 +23,19 @@ const Navbar = () => {
   };
 
   const closeMenu = () => setIsMenuOpen(false);
+
+// Navbar.jsx
+useEffect(() => {
+  // If we just logged in (isAuthenticated) AND the user object has a cart
+  if (isAuthenticated && user?.cart) {
+    // We replace the empty Redux cart with the one from the VOID database
+    dispatch(replaceCart(user.cart));
+    console.log("SIGNAL ACQUIRED: Cart synced from database.");
+  } else if (!isAuthenticated) {
+    // If they log out, we ensure the Redux cart is wiped clean
+    dispatch(clearCart());
+  }
+}, [isAuthenticated, user?.id, dispatch]); // Watch for the Login status change
 
   return (
     <nav className="fixed top-2 left-1/2 -translate-x-1/2 w-[95%] max-w-7xl bg-[#0a0a0a] border border-white/10 px-6 py-3 flex justify-between items-center z-[100] rounded-full shadow-2xl">

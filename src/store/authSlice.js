@@ -10,9 +10,15 @@ const authSlice = createSlice({
     },
     reducers:{
         setCredentials:(state,action)=>{
-            state.user = action.payload;
-            state.isAuthenticated = true;
-            localStorage.setItem('void_user', JSON.stringify(action.payload));
+            // state.user = action.payload;
+            // state.isAuthenticated = true;
+            // localStorage.setItem('void_user', JSON.stringify(action.payload));
+            const {password, ...safeUser} = action.payload;
+
+            state.user =safeUser;
+            state.isAuthenticated =true
+
+            localStorage.setItem('void_user', JSON.stringify(safeUser));
         },
         logout: (state)=>{
             state.user = null;

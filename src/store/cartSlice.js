@@ -1,4 +1,20 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice , createAsyncThunk } from "@reduxjs/toolkit";
+import apiClient from "../api/apiClient";
+
+export const syncCartToDB = createAsyncThunk(
+    "cart/syncToDB",
+    async ({userId , cartState},{rejectWithValue}) => {
+        try{
+        const response = await apiClient.patch(`/users/${userId}`,{
+            cart: cartState
+        });
+        return response.data.cart;
+    }catch(err){
+            return rejectWithValue(err.message);
+            }
+
+    }
+)
 
 const cartSlice = createSlice({
     name: 'cart',
@@ -58,10 +74,26 @@ const cartSlice = createSlice({
             state.items = [];
             state.totalQuantity = 0;
             state.totalPrice = 0;
+        },
+        replaceCart: (state, action) => {
+            state.items = action.payload.items || [];
+            state.totalQuantity = action.payload.totalQuantity || 0;
+            state.totalPrice = action.payload.totalPrice || 0;
         }
+    },
+    extraReducers: (builder) => {
+        builder.addCase(syncCartToDB.rejected, (state, action) => {
+            console.error("VOID SYNC FAILED:", action.payload);
+        });
+        builder.addCase("auth/logout", (state) => {
+        state.items = [];
+        state.totalQuantity = 0;
+        state.totalPrice = 0;
+        console.log("VOID: Cart purged following operative logout.");
+    });
     }
 })
 
-export const {addToCart, removeFromCart, clearItem, clearCart} = cartSlice.actions;
+export const {addToCart, removeFromCart, clearItem, clearCart, replaceCart} = cartSlice.actions;
 
 export default cartSlice.reducer;
