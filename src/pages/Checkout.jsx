@@ -77,73 +77,117 @@ const Checkout = () => {
 
     if (!items || items.length === 0) return null;
 
-    return (
-        <div className="min-h-screen pt-32 pb-20 px-4 bg-[#050505]">
-            <div className="max-w-2xl mx-auto">
-                <div className="mb-10 flex items-center gap-6">
-                    <div className="h-16 w-1 bg-cyan-500 shadow-[0_0_15px_cyan]"></div>
-                    <div>
-                        <h2 className="text-4xl font-black uppercase italic tracking-tighter text-white">
-                            Finalize <span className="text-cyan-400">Signal</span>
-                        </h2>
-                        <p className="text-[10px] font-mono uppercase tracking-[0.4em] text-gray-500">
-                            Authorized Operative: {user?.name}
-                        </p>
-                    </div>
-                </div>
+  return (
+  <div className="min-h-screen pt-28 pb-20 px-6 bg-[#050505] text-white">
+    <div className="max-w-3xl mx-auto">
 
-                <form onSubmit={handleConfirmOrder} className="bg-[#0f0f0f] border border-white/5 rounded-[2.5rem] p-10 shadow-2xl relative overflow-hidden">
-                    <div className="space-y-8 relative z-10">
-                        {/* Section 1: Logistics */}
-                        <div className="space-y-4">
-                            <label className="text-[10px] font-black uppercase tracking-widest text-cyan-500/70 ml-2">Destination Matrix</label>
-                            <div className="grid grid-cols-2 gap-4">
-                                <input type="text" placeholder="First Name" required className="bg-black/50 border border-white/10 p-4 rounded-2xl text-white outline-none focus:border-cyan-500" />
-                                <input type="text" placeholder="Last Name" required className="bg-black/50 border border-white/10 p-4 rounded-2xl text-white outline-none focus:border-cyan-500" />
-                            </div>
-                            <input type="text" placeholder="Full Shipping Address" required className="w-full bg-black/50 border border-white/10 p-4 rounded-2xl text-white outline-none focus:border-cyan-500" />
-                        </div>
-
-                        {/* Section 2: Payment Protocol (Moved Up) */}
-                        <div className="space-y-4">
-                            <label className="text-[10px] font-black uppercase tracking-widest text-cyan-500/70 ml-2">Payment Protocol</label>
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                <label className="flex items-center gap-4 bg-black/40 border border-white/10 p-4 rounded-2xl cursor-pointer hover:border-cyan-500/50">
-                                    <input type="radio" name="payment" value="credit" defaultChecked className="accent-cyan-500" />
-                                    <div className="flex flex-col text-white">
-                                        <span className="text-sm font-bold uppercase">Credit Uplink</span>
-                                        <span className="text-[10px] text-gray-500">Visa / Mastercard</span>
-                                    </div>
-                                </label>
-                                <label className="flex items-center gap-4 bg-black/40 border border-white/10 p-4 rounded-2xl cursor-pointer hover:border-cyan-500/50">
-                                    <input type="radio" name="payment" value="crypto" className="accent-cyan-500" />
-                                    <div className="flex flex-col text-white">
-                                        <span className="text-sm font-bold uppercase">Crypto Node</span>
-                                        <span className="text-[10px] text-gray-500">BTC / ETH / SOL</span>
-                                    </div>
-                                </label>
-                            </div>
-                        </div>
-
-                        {/* Section 3: Summary */}
-                        <div className="pt-8 border-t border-white/5 text-white">
-                            <div className="bg-black/40 rounded-3xl p-6 border border-white/5 space-y-3">
-                                <div className="flex justify-between items-end pt-4">
-                                    <span className="text-[10px] font-black uppercase text-gray-500">Total Liability</span>
-                                    <span className="text-5xl font-black italic tracking-tighter">${totalPrice}</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        {/* Submit Action */}
-                        <button type="submit" className="w-full bg-white text-black py-6 rounded-2xl font-black uppercase tracking-widest hover:bg-cyan-400 transition-all">
-                            Confirm & Deploy Order
-                        </button>
-                    </div>
-                </form>
-            </div>
+      {/* Header */}
+      <div className="mb-14 flex items-end gap-6">
+        <div className="h-14 w-[2px] bg-cyan-500 shadow-[0_0_12px_cyan]"></div>
+        <div>
+          <h2 className="text-3xl font-extralight uppercase tracking-tight">
+            Finalize <span className="text-cyan-400 italic">Signal</span>
+          </h2>
+          <p className="text-[10px] font-mono uppercase tracking-[0.4em] text-white/30 mt-1">
+            Authorized: {user?.name}
+          </p>
         </div>
-    );
+      </div>
+
+      <form
+        onSubmit={handleConfirmOrder}
+        className="bg-[#0d0d0d] border border-white/5 p-10 relative overflow-hidden"
+      >
+        <div className="space-y-10">
+
+          {/* Logistics */}
+          <section className="space-y-5">
+            <label className="text-[10px] uppercase tracking-[0.5em] text-cyan-500/70">
+              Destination Matrix
+            </label>
+
+            <div className="grid grid-cols-2 gap-4">
+              <input
+                type="text"
+                placeholder="First Name"
+                required
+                className="bg-black/40 border border-white/10 px-4 py-3 text-sm outline-none focus:border-cyan-500 transition"
+              />
+              <input
+                type="text"
+                placeholder="Last Name"
+                required
+                className="bg-black/40 border border-white/10 px-4 py-3 text-sm outline-none focus:border-cyan-500 transition"
+              />
+            </div>
+
+            <input
+              type="text"
+              placeholder="Full Shipping Address"
+              required
+              className="w-full bg-black/40 border border-white/10 px-4 py-3 text-sm outline-none focus:border-cyan-500 transition"
+            />
+          </section>
+
+          {/* Payment */}
+          <section className="space-y-5">
+            <label className="text-[10px] uppercase tracking-[0.5em] text-cyan-500/70">
+              Payment Protocol
+            </label>
+
+            <div className="grid md:grid-cols-2 gap-4">
+              <label className="flex items-center gap-4 border border-white/10 p-4 cursor-pointer hover:border-cyan-500/50 transition">
+                <input
+                  type="radio"
+                  name="payment"
+                  defaultChecked
+                  className="accent-cyan-500"
+                />
+                <div>
+                  <p className="text-sm uppercase tracking-wide">
+                    Credit Uplink
+                  </p>
+                  <p className="text-[10px] text-white/40">
+                    Visa / Mastercard
+                  </p>
+                </div>
+              </label>
+            </div>
+          </section>
+
+          {/* Summary */}
+          <section className="border-t border-white/5 pt-8">
+            <div className="flex justify-between text-white/40 text-xs uppercase tracking-[0.3em]">
+              <span>Total Liability</span>
+              <span>INR</span>
+            </div>
+
+            <div className="flex justify-between items-end mt-2">
+              <span className="text-3xl font-extralight uppercase">
+                Total
+              </span>
+              <span className="text-4xl font-light italic tracking-tight text-cyan-400">
+                ₹{totalPrice}
+              </span>
+            </div>
+          </section>
+
+          {/* Action */}
+          <button
+            type="submit"
+            className="w-full h-16 border border-white text-[11px] uppercase tracking-[0.5em] relative overflow-hidden group"
+          >
+            <span className="relative z-10 group-hover:text-black transition">
+              Confirm & Deploy
+            </span>
+            <div className="absolute inset-0 bg-white translate-y-full group-hover:translate-y-0 transition-transform duration-500" />
+          </button>
+
+        </div>
+      </form>
+    </div>
+  </div>
+);
 };
 
 export default Checkout;

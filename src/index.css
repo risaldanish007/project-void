@@ -16,7 +16,7 @@ h1 {
   /* Tilt it slightly like your drawing */
   transform: rotate(-5deg) translateY(15px);
 }
-.home-page-wrapper {
+.home-page-wrapper{
   /* This points to the image you put in the public folder */
   background-image: url('../public/images/void-bg-vin.png'); 
   
@@ -48,5 +48,52 @@ h1 {
   /* Optional: Adds a nice shadow to separate it from the image */
   box-shadow: 0px -20px 40px rgba(0, 0, 0, 0.5);
 }
+/* --- VOID TERMINAL TOASTS --- */
+:root {
+  --toastify-color-dark: #050505;
+  --toastify-text-color-dark: #ffffff;
+}
 
+.Toastify__toast {
+  border-radius: 0 !important; /* Sharp corners */
+  background: #050505 !important;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8) !important;
+  padding: 0 !important;
+  min-height: 50px !important;
+}
+/* Custom VOID Toast Styling */
+.Toastify__toast {
+  background: rgba(255, 255, 255, 0.05) !important;
+  backdrop-filter: blur(12px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  color: white !important;
+  border-radius: 12px !important;
+  font-family: monospace; /* Matches your 'Existing Operative' text */
+}
+
+/* Success icon color */
+.Toastify__toast--success {
+  border-left: 4px solid #22c55e !important;
+}
+
+/* Error icon color */
+.Toastify__toast--error {
+  border-left: 4px solid #ef4444 !important;
+}
+.product-page-wrapper{
+  /* This points to the image you put in the public folder */
+  /* background-image: url('../public/images/void-bg-vin.png');  */
+  
+  /* This makes sure the image covers the entire screen */
+  background-size: 50%;
+  background-size: cover;
+  background-position: center;
+  /* background-attachment: fixed; This keeps it still while you scroll */
+  padding: 0%;
+  margin: -2%;
+  margin-bottom: 2%;
+
+  min-height: 100vh;
+}
 @import "tailwindcss";

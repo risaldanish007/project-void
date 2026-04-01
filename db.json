@@ -10,15 +10,15 @@
         "items": [
           {
             "id": "p1",
-            "name": "VOID Zero",
+            "name": "VOID ZERO",
             "price": 25,
-            "quantity": 1,
-            "totalItemPrice": 25,
+            "quantity": 2,
+            "totalItemPrice": 50,
             "image": "/images/void-zero.png"
           }
         ],
-        "totalQuantity": 1,
-        "totalPrice": 25
+        "totalQuantity": 2,
+        "totalPrice": 50
       },
       "orders": [
         {
@@ -54,79 +54,9 @@
           "paymentId": "pay_SVquWSQumWt6zS",
           "status": "Deployed",
           "date": "2026-03-26"
-        }
-      ]
-    },
-    {
-      "id": "b756",
-      "name": "leo",
-      "email": "messi@gmail.com",
-      "password": "1234567890",
-      "role": "user",
-      "cart": {
-        "items": [],
-        "totalQuantity": 0,
-        "totalPrice": 0
-      },
-      "orders": [
+        },
         {
-          "id": "VOID-8083",
-          "items": [
-            {
-              "id": "p1",
-              "name": "VOID Zero",
-              "price": 25,
-              "quantity": 6,
-              "totalItemPrice": 150,
-              "image": "/images/void-zero.png"
-            },
-            {
-              "id": "p2",
-              "name": "SIGNAL Pulse",
-              "price": 30,
-              "quantity": 4,
-              "totalItemPrice": 120,
-              "image": "https://images.unsplash.com/photo-1527963842125-33c7fcaec594?q=80&w=400&h=400&auto=format&fit=crop"
-            },
-            {
-              "id": "p3",
-              "name": "GHOST Logic",
-              "price": 28,
-              "quantity": 2,
-              "totalItemPrice": 56,
-              "image": "https://images.unsplash.com/photo-1543258103-a62bdc069871?q=80&w=400&h=400&auto=format&fit=crop"
-            }
-          ],
-          "total": 326,
-          "paymentId": "pay_SVqFCgZPThP0wZ",
-          "status": "Deployed",
-          "date": "2026-03-26"
-        }
-      ]
-    },
-    {
-      "id": "4489",
-      "name": "danish",
-      "email": "risaldanish10@gmail.com",
-      "password": "1234567890",
-      "role": "user",
-      "cart": {
-        "items": [
-          {
-            "id": "p1",
-            "name": "VOID Zero",
-            "price": 25,
-            "quantity": 6,
-            "totalItemPrice": 150,
-            "image": "/images/void-zero.png"
-          }
-        ],
-        "totalQuantity": 6,
-        "totalPrice": 150
-      },
-      "orders": [
-        {
-          "id": "VOID-2616",
+          "id": "VOID-1126",
           "items": [
             {
               "id": "p1",
@@ -138,76 +68,725 @@
             }
           ],
           "total": 25,
-          "paymentId": "pay_SVriXIOeU9GMJj",
+          "paymentId": "pay_SWA0j43iXmlGdl",
           "status": "Deployed",
-          "date": "2026-03-26"
+          "date": "2026-03-27"
+        },
+        {
+          "id": "VOID-4390",
+          "items": [
+            {
+              "id": "p1",
+              "name": "VOID Zero",
+              "price": 25,
+              "quantity": 7,
+              "totalItemPrice": 175,
+              "image": "/images/void-zero.png"
+            }
+          ],
+          "total": 175,
+          "paymentId": "pay_SWGjqehV1BkAQK",
+          "status": "Deployed",
+          "date": "2026-03-27"
+        },
+        {
+          "id": "VOID-6060",
+          "items": [
+            {
+              "id": "p1",
+              "name": "VOID Zero",
+              "price": 25,
+              "quantity": 3,
+              "totalItemPrice": 75,
+              "image": "/images/void-zero.png"
+            },
+            {
+              "id": "p2",
+              "name": "SIGNAL Pulse",
+              "price": 30,
+              "quantity": 3,
+              "totalItemPrice": 90,
+              "image": "https://images.unsplash.com/photo-1527963842125-33c7fcaec594?q=80&w=400&h=400&auto=format&fit=crop"
+            },
+            {
+              "id": "p3",
+              "name": "GHOST Logic",
+              "price": 28,
+              "quantity": 3,
+              "totalItemPrice": 84,
+              "image": "https://images.unsplash.com/photo-1543258103-a62bdc069871?q=80&w=400&h=400&auto=format&fit=crop"
+            }
+          ],
+          "total": 249,
+          "paymentId": "pay_SWGm8bbt1DxIfA",
+          "status": "Deployed",
+          "date": "2026-03-27"
+        },
+        {
+          "id": "VOID-5507",
+          "items": [
+            {
+              "id": "p1",
+              "name": "VOID Zero",
+              "price": 25,
+              "quantity": 2,
+              "totalItemPrice": 50,
+              "image": "/images/void-zero.png"
+            },
+            {
+              "id": "flow-zen",
+              "name": "ZEN",
+              "price": 32,
+              "quantity": 1,
+              "totalItemPrice": 32,
+              "image": "/images/void-zen.png"
+            },
+            {
+              "id": "flow-io",
+              "name": "IO",
+              "price": 30,
+              "quantity": 1,
+              "totalItemPrice": 30,
+              "image": "/images/void-io.png"
+            },
+            {
+              "id": "flow-axis",
+              "name": "AXIS",
+              "price": 35,
+              "quantity": 1,
+              "totalItemPrice": 35,
+              "image": "/images/void-axis.png"
+            }
+          ],
+          "total": 147,
+          "paymentId": "pay_SWgLa1xPT8vy9e",
+          "status": "Deployed",
+          "date": "2026-03-28"
+        },
+        {
+          "id": "VOID-3392",
+          "items": [
+            {
+              "id": "p1",
+              "name": "VOID Zero",
+              "price": 25,
+              "quantity": 1,
+              "totalItemPrice": 25,
+              "image": "/images/void-zero.png"
+            }
+          ],
+          "total": 25,
+          "paymentId": "pay_SX0FQZQ32hJpSn",
+          "status": "Deployed",
+          "date": "2026-03-29"
+        },
+        {
+          "id": "VOID-9967",
+          "items": [
+            {
+              "id": "p1",
+              "name": "VOID ZERO",
+              "price": 25,
+              "quantity": 2,
+              "totalItemPrice": 50,
+              "image": "/images/void-zero.png"
+            },
+            {
+              "id": "p2",
+              "name": "FLOW IO",
+              "price": 30,
+              "quantity": 2,
+              "totalItemPrice": 60,
+              "image": "/images/flow-io.png"
+            },
+            {
+              "id": "p9",
+              "name": "NOX",
+              "price": 45,
+              "quantity": 1,
+              "totalItemPrice": 45,
+              "image": "/images/rite-nox.png"
+            }
+          ],
+          "total": 155,
+          "paymentId": "pay_SXB45siMSs2OOy",
+          "status": "Deployed",
+          "date": "2026-03-29"
+        },
+        {
+          "id": "VOID-1657",
+          "items": [
+            {
+              "id": "p2",
+              "name": "FLOW IO",
+              "price": 30,
+              "quantity": 1,
+              "totalItemPrice": 30,
+              "image": "/images/flow-io.png"
+            },
+            {
+              "id": "p1",
+              "name": "VOID ZERO",
+              "price": 25,
+              "quantity": 1,
+              "totalItemPrice": 25,
+              "image": "/images/void-zero.png"
+            },
+            {
+              "id": "p3",
+              "name": "FLOW ZEN",
+              "price": 30,
+              "quantity": 1,
+              "totalItemPrice": 30,
+              "image": "/images/flow-zen.png"
+            },
+            {
+              "id": "p4",
+              "name": "FLOW AXIS",
+              "price": 30,
+              "quantity": 1,
+              "totalItemPrice": 30,
+              "image": "/images/flow-axis.png"
+            },
+            {
+              "id": "p5",
+              "name": "FORM ION",
+              "price": 35,
+              "quantity": 1,
+              "totalItemPrice": 35,
+              "image": "/images/form-ion.png"
+            },
+            {
+              "id": "p6",
+              "name": "FORM CORE",
+              "price": 35,
+              "quantity": 1,
+              "totalItemPrice": 35,
+              "image": "/images/form-core.png"
+            },
+            {
+              "id": "p7",
+              "name": "FORM PEAK",
+              "price": 40,
+              "quantity": 1,
+              "totalItemPrice": 40,
+              "image": "/images/form-peak.png"
+            },
+            {
+              "id": "p8",
+              "name": "FORM BASE",
+              "price": 20,
+              "quantity": 1,
+              "totalItemPrice": 20,
+              "image": "/images/form-base.png"
+            },
+            {
+              "id": "p9",
+              "name": "NOX",
+              "price": 45,
+              "quantity": 1,
+              "totalItemPrice": 45,
+              "image": "/images/rite-nox.png"
+            },
+            {
+              "id": "p10",
+              "name": "DUSK",
+              "price": 30,
+              "quantity": 1,
+              "totalItemPrice": 30,
+              "image": "/images/rite-dusk.png"
+            },
+            {
+              "id": "p11",
+              "name": "ECHO",
+              "price": 45,
+              "quantity": 1,
+              "totalItemPrice": 45,
+              "image": "/images/rite-echo.png"
+            }
+          ],
+          "total": 365,
+          "paymentId": "pay_SXBBbJQK2BLjuv",
+          "status": "Deployed",
+          "date": "2026-03-29"
+        },
+        {
+          "id": "VOID-5344",
+          "items": [
+            {
+              "id": "p1",
+              "name": "VOID ZERO",
+              "price": 25,
+              "quantity": 1,
+              "totalItemPrice": 25,
+              "image": "/images/void-zero.png"
+            },
+            {
+              "id": "p6",
+              "name": "FORM CORE",
+              "price": 35,
+              "quantity": 1,
+              "totalItemPrice": 35,
+              "image": "/images/form-core.png"
+            }
+          ],
+          "total": 60,
+          "paymentId": "pay_SXNy7a3YYuNDQE",
+          "status": "Deployed",
+          "date": "2026-03-30"
+        },
+        {
+          "id": "VOID-3292",
+          "items": [
+            {
+              "id": "p1",
+              "name": "VOID ZERO",
+              "price": 25,
+              "quantity": 1,
+              "totalItemPrice": 25,
+              "image": "/images/void-zero.png"
+            }
+          ],
+          "total": 25,
+          "paymentId": "pay_SXQQDYNg7EFJhh",
+          "status": "Deployed",
+          "date": "2026-03-30"
+        },
+        {
+          "id": "VOID-3703",
+          "items": [
+            {
+              "id": "p1",
+              "name": "VOID ZERO",
+              "price": 25,
+              "quantity": 1,
+              "totalItemPrice": 25,
+              "image": "/images/void-zero.png"
+            }
+          ],
+          "total": 25,
+          "paymentId": "pay_SXRjoTG92b4GgI",
+          "status": "Deployed",
+          "date": "2026-03-30"
+        },
+        {
+          "id": "VOID-6466",
+          "items": [
+            {
+              "id": "p1",
+              "name": "VOID ZERO",
+              "price": 25,
+              "quantity": 2,
+              "totalItemPrice": 50,
+              "image": "/images/void-zero.png"
+            },
+            {
+              "id": "p2",
+              "name": "FLOW IO",
+              "price": 30,
+              "quantity": 1,
+              "totalItemPrice": 30,
+              "image": "/images/flow-io.png"
+            }
+          ],
+          "total": 155,
+          "paymentId": "pay_SYCsDUZW9VO1ws",
+          "status": "Deployed",
+          "date": "2026-04-01"
+        },
+        {
+          "id": "VOID-3466",
+          "items": [
+            {
+              "id": "p9",
+              "name": "NOX",
+              "price": 45,
+              "quantity": 3,
+              "totalItemPrice": 135,
+              "image": "/images/rite-nox.png"
+            },
+            {
+              "id": "p10",
+              "name": "DUSK",
+              "price": 30,
+              "quantity": 2,
+              "totalItemPrice": 60,
+              "image": "/images/rite-dusk.png"
+            },
+            {
+              "id": "p11",
+              "name": "ECHO",
+              "price": 45,
+              "quantity": 2,
+              "totalItemPrice": 90,
+              "image": "/images/rite-echo.png"
+            },
+            {
+              "id": "p1",
+              "name": "VOID ZERO",
+              "price": 25,
+              "quantity": 1,
+              "totalItemPrice": 25,
+              "image": "/images/void-zero.png"
+            },
+            {
+              "id": "p2",
+              "name": "FLOW IO",
+              "price": 30,
+              "quantity": 1,
+              "totalItemPrice": 30,
+              "image": "/images/flow-io.png"
+            }
+          ],
+          "total": 340,
+          "paymentId": "pay_SYDhUdYJfFiB4L",
+          "status": "Deployed",
+          "date": "2026-04-01"
         }
       ]
     },
     {
-      "id": "727b",
-      "name": "ashif",
-      "email": "ashif@gmail.com",
-      "password": "0",
+      "id": "17c0",
+      "name": "12345",
+      "email": "risaldanish7@gmail.com",
+      "password": "1234567890",
+      "role": "user",
+      "cart": {
+        "items": [
+          {
+            "id": "p1",
+            "name": "VOID ZERO",
+            "price": 25,
+            "quantity": 1,
+            "totalItemPrice": 25,
+            "image": "/images/void-zero.png"
+          }
+        ],
+        "totalQuantity": 1,
+        "totalPrice": 25
+      },
+      "orders": []
+    },
+    {
+      "id": "22b1",
+      "name": "Wolfeschlegelsteinhausenbergerdorff",
+      "email": "risaldanish0@gmail.com",
+      "password": "1234567890",
       "role": "user",
       "cart": {
         "items": [],
         "totalQuantity": 0,
         "totalPrice": 0
       },
-      "orders": [
-        {
-          "id": "VOID-7481",
-          "items": [
-            {
-              "id": "p1",
-              "name": "VOID Zero",
-              "price": 25,
-              "quantity": 4,
-              "totalItemPrice": 100,
-              "image": "/images/void-zero.png"
-            },
-            {
-              "id": "p3",
-              "name": "GHOST Logic",
-              "price": 28,
-              "quantity": 1,
-              "totalItemPrice": 28,
-              "image": "https://images.unsplash.com/photo-1543258103-a62bdc069871?q=80&w=400&h=400&auto=format&fit=crop"
-            }
-          ],
-          "total": 128,
-          "paymentId": "pay_SVs3pex196WLWA",
-          "status": "Deployed",
-          "date": "2026-03-26"
-        }
-      ]
+      "orders": []
+    },
+    {
+      "id": "4585",
+      "name": "new acc",
+      "email": "risaldanish12@gmail.com",
+      "password": "1234567890",
+      "role": "user",
+      "cart": {
+        "items": [
+          {
+            "id": "p3",
+            "name": "FLOW ZEN",
+            "price": 30,
+            "quantity": 1,
+            "totalItemPrice": 30,
+            "image": "/images/flow-zen.png"
+          }
+        ],
+        "totalQuantity": 1,
+        "totalPrice": 30
+      },
+      "orders": []
+    },
+    {
+      "id": "947c",
+      "name": "jasla",
+      "email": "jasla@gmail.com",
+      "password": "1234567890",
+      "role": "user",
+      "cart": {
+        "items": [],
+        "totalQuantity": 0,
+        "totalPrice": 0
+      },
+      "orders": []
     }
   ],
   "products": [
     {
       "id": "p1",
-      "name": "VOID Zero",
-      "description": "Maximum focus. Zero sugar. Engineered for deep-work sessions.",
+      "name": "VOID ZERO",
+      "description": "VOID ZERO is our baseline for performance. A clean 200mg caffeine strike balanced with L-Theanine, built to maintain focus without the jitter or crash. No sugar, no noise — just steady uptime for coding, creating, and long-form thinking.",
       "price": 25,
       "image": "/images/void-zero.png",
-      "category": "Energy"
+      "imageBg": "/imagesBg/void-prod-bg.png",
+      "category": "Energy",
+      "series": "VOID",
+      "ingredients": [
+        {
+          "name": "Alpha-GPC",
+          "benefit": "Neural Speed"
+        },
+        {
+          "name": "Lion's Mane",
+          "benefit": "Cognitive Clarity"
+        },
+        {
+          "name": "L-Theanine",
+          "benefit": "Zero Jitters"
+        },
+        {
+          "name": "Natural Caffeine",
+          "benefit": "Sustained Power"
+        }
+      ]
     },
     {
       "id": "p2",
-      "name": "SIGNAL Pulse",
-      "description": "Rapid response electrolytes. For when the deadline is in an hour.",
+      "name": "FLOW IO",
+      "flavor": "Yuzu (Japanese Citrus)",
+      "description": "Mental Focus redefined. FLOW IO utilizes Yuzu extracts and advanced nootropics to sharpen cognitive precision. Designed for deep-state flow where the world disappears and the work becomes effortless.",
       "price": 30,
-      "image": "https://images.unsplash.com/photo-1527963842125-33c7fcaec594?q=80&w=400&h=400&auto=format&fit=crop",
-      "category": "Energy"
+      "image": "/images/flow-io.png",
+      "imageBg": "/imagesBg/io-bg.png",
+      "category": "Focus",
+      "series": "FLOW",
+      "ingredients": [
+        {
+          "name": "Yuzu Extract",
+          "benefit": "Sensory Sharpness"
+        },
+        {
+          "name": "Bacopa Monnieri",
+          "benefit": "Memory Retention"
+        },
+        {
+          "name": "Rhodiola Rosea",
+          "benefit": "Stress Resilience"
+        }
+      ]
     },
     {
       "id": "p3",
-      "name": "GHOST Logic",
-      "description": "Translucent citrus blend. Tastes like a clean compile.",
-      "price": 28,
-      "image": "https://images.unsplash.com/photo-1543258103-a62bdc069871?q=80&w=400&h=400&auto=format&fit=crop",
-      "category": "Energy"
+      "name": "FLOW ZEN",
+      "flavor": "Midnight Lotus",
+      "description": "Calm Clarity. ZEN is a non-stimulant formula designed to lower cortisol and quiet the mental noise, allowing for meditative productivity and absolute presence in high-pressure environments.",
+      "price": 30,
+      "image": "/images/flow-zen.png",
+      "imageBg": "/imagesBg/zen-bg.png",
+      "category": "Focus",
+      "series": "FLOW",
+      "ingredients": [
+        {
+          "name": "Ashwagandha",
+          "benefit": "Cortisol Control"
+        },
+        {
+          "name": "L-Glycine",
+          "benefit": "Neural Calm"
+        },
+        {
+          "name": "Holy Basil",
+          "benefit": "Emotional Balance"
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "name": "FLOW AXIS",
+      "flavor": "Pomelo",
+      "description": "Cognitive Balance. AXIS acts as the stabilizer for your mental equilibrium, preventing burn-out and ensuring your brain operates at its natural frequency throughout the day.",
+      "price": 30,
+      "image": "/images/flow-axis.png",
+      "imageBg": "/imagesBg/axis-bg.png",
+      "category": "Focus",
+      "series": "FLOW",
+      "ingredients": [
+        {
+          "name": "Ginkgo Biloba",
+          "benefit": "Blood Flow"
+        },
+        {
+          "name": "Panax Ginseng",
+          "benefit": "Vitality"
+        },
+        {
+          "name": "B-Complex",
+          "benefit": "ATP Synthesis"
+        }
+      ]
+    },
+    {
+      "id": "p5",
+      "name": "FORM ION",
+      "description": "Physical Performance distilled. FORM IO bridges the gap between mind and muscle, providing the raw materials required for explosive movement and high-cadence endurance.",
+      "price": 35,
+      "image": "/images/form-ion.png",
+      "imageBg": "/imagesBg/form-bg.png",
+      "category": "Performance",
+      "series": "FORM",
+      "ingredients": [
+        {
+          "name": "Creatine Monohydrate",
+          "benefit": "Muscle Power"
+        },
+        {
+          "name": "Beta-Alanine",
+          "benefit": "Endurance Buffer"
+        },
+        {
+          "name": "Nitrosigine",
+          "benefit": "Vasodilation"
+        }
+      ]
+    },
+    {
+      "id": "p6",
+      "name": "FORM CORE",
+      "description": "Pure Power. CORE is a high-density formula built for the daily athlete. It provides the physiological foundation to sustain high-intensity training and physical stress.",
+      "price": 35,
+      "image": "/images/form-core.png",
+      "imageBg": "/imagesBg/form-bg.png",
+      "category": "Performance",
+      "series": "FORM",
+      "ingredients": [
+        {
+          "name": "Betaine Anhydrous",
+          "benefit": "Force Production"
+        },
+        {
+          "name": "Electrolyte Matrix",
+          "benefit": "Hydration"
+        },
+        {
+          "name": "Taurine",
+          "benefit": "Cellular Volume"
+        }
+      ]
+    },
+    {
+      "id": "p7",
+      "name": "FORM PEAK",
+      "description": "Maximum Output. PEAK is a heavy-duty performance catalyst for those pushing the absolute limits of human physiology. It is the final gear in your physical engine.",
+      "price": 40,
+      "image": "/images/form-peak.png",
+      "imageBg": "/imagesBg/form-bg.png",
+      "category": "Performance",
+      "series": "FORM",
+      "ingredients": [
+        {
+          "name": "PeakO2",
+          "benefit": "Oxygen Uptake"
+        },
+        {
+          "name": "AstraGin",
+          "benefit": "Nutrient Absorption"
+        },
+        {
+          "name": "Citrulline Malate",
+          "benefit": "Maximum Pump"
+        }
+      ]
+    },
+    {
+      "id": "p8",
+      "name": "FORM BASE",
+      "description": "Daily Support system. BASE provides the essential micronutrients and minerals required to keep the human machine running smoothly in a modern, high-stress environment.",
+      "price": 20,
+      "image": "/images/form-base.png",
+      "imageBg": "/imagesBg/base-bg.png",
+      "category": "Essential",
+      "series": "FORM",
+      "ingredients": [
+        {
+          "name": "Vitamin D3/K2",
+          "benefit": "Bone & Heart"
+        },
+        {
+          "name": "Zinc Picolinate",
+          "benefit": "Immune Shield"
+        },
+        {
+          "name": "Omega-3",
+          "benefit": "Systemic Health"
+        }
+      ]
+    },
+    {
+      "id": "p9",
+      "name": "NOX",
+      "description": "Evening/Social catalyst. RITENOX is a sophisticated formula designed to ease social anxiety and heighten engagement without the neurotoxicity of traditional alternatives.",
+      "price": 45,
+      "image": "/images/rite-nox.png",
+      "imageBg": "/imagesBg/ritenox-bg.png",
+      "category": "Social",
+      "series": "RITE",
+      "ingredients": [
+        {
+          "name": "Kava Root",
+          "benefit": "Social Ease"
+        },
+        {
+          "name": "5-HTP",
+          "benefit": "Mood Lift"
+        },
+        {
+          "name": "GABA",
+          "benefit": "Neural Brake"
+        }
+      ]
+    },
+    {
+      "id": "p10",
+      "name": "DUSK",
+      "description": "Wind Down protocol. DUSK signals to your nervous system that the day is done. It prepares the mind for deep, restorative REM sleep to ensure maximum recovery.",
+      "price": 30,
+      "image": "/images/rite-dusk.png",
+      "imageBg": "/imagesBg/dusk-bg.png",
+      "category": "Recovery",
+      "series": "RITE",
+      "ingredients": [
+        {
+          "name": "Melatonin (Timed)",
+          "benefit": "Sleep Cycle"
+        },
+        {
+          "name": "Apigenin",
+          "benefit": "Deep Relaxation"
+        },
+        {
+          "name": "Tart Cherry",
+          "benefit": "Muscle Recovery"
+        }
+      ]
+    },
+    {
+      "id": "p11",
+      "name": "ECHO",
+      "description": "Social Connection. ECHO enhances empathy and verbal fluidity, making it the perfect companion for networking, high-stakes communication, or deep social immersion.",
+      "price": 45,
+      "image": "/images/rite-echo.png",
+      "imageBg": "/imagesBg/echo-bg.png",
+      "category": "Social",
+      "series": "RITE",
+      "ingredients": [
+        {
+          "name": "Aniracetam",
+          "benefit": "Verbal Fluency"
+        },
+        {
+          "name": "Phenylethylamine",
+          "benefit": "Euphoric Spark"
+        },
+        {
+          "name": "L-Tyrosine",
+          "benefit": "Dopamine Support"
+        }
+      ]
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

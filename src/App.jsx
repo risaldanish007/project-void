@@ -10,14 +10,22 @@ import ProductDetail from "./pages/ProductDetail";
 import Cart from "./pages/Cart";
 import Checkout from "./pages/Checkout";
 import Success from "./pages/Success";
-
-// const Home = () => <div><h2>Welcome to VOID ENERGY</h2><p>Home of pure signal</p></div>;
-// const Login = () => <div><h2>Login Page</h2><p>enter FLOWSTATE</p></div>;
-// const Register = () => <div><h2>Register Page</h2><p>"hisToric!"</p></div>;
+import Variants from "./pages/variants";
+import SeriesPage from "./pages/SeriesPage";
+import ScrollToTop from "./utils/ScrollToTop";
+import Footer from "./components/layout/Footer";
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import 'react-toastify/dist/ReactToastify.css';
+import './index.css';
+import { useCartSync } from "./hooks/useCartSync";
 
 function App(){
+  useCartSync();
+
   return(
     <Router>
+      <ScrollToTop/>
       <Navbar/>
         
         <div style={{padding: '2rem'}}>
@@ -27,15 +35,17 @@ function App(){
             <Route path="/login" element={<Login/>}/>
             <Route path="/register" element={<Register/>}/>
               {/*dynamic route|*/}
+              <Route path="/series/:seriesId" element={<SeriesPage />} />
               <Route path="/product/:id" element={<ProductDetail/>}/>
               <Route path="/cart" element={<Cart/>}/>
+              <Route path="/variants" element={<Variants />} />
               {/* protected Routes */}
               <Route
               path="/profile"
               element={
                 <ProtectedRoute>
                   <Profile/>
-                </ProtectedRoute>          
+                </ProtectedRoute>         
               }/>
               <Route
               path="/checkout"
@@ -52,6 +62,17 @@ function App(){
                 </ProtectedRoute>
               }/>
           </Routes>
+          <Footer/>
+      <ToastContainer 
+      theme="dark"
+  position="bottom-right"
+  autoClose={1600}
+  hideProgressBar={true} // Removes the timer bar
+  closeButton={false}    // Removes the 'X' for a cleaner look
+  toastClassName={() => 
+    "relative flex p-1 min-h-10 rounded-2xl justify-between overflow-hidden cursor-pointer bg-white shadow-xl"
+  }
+/>
         </div>
     </Router>
   )

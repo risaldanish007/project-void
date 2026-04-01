@@ -10,7 +10,7 @@ import { useRef, useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
 function CanModel({ shouldAnimate }) {
-  const { scene } = useGLTF("/3d/can4.glb");
+  const { scene } = useGLTF("/3d/can5.glb");
   const ref = useRef();
   const { mouse } = useThree();
 
@@ -20,8 +20,8 @@ function CanModel({ shouldAnimate }) {
   useEffect(() => {
     scene.traverse((child) => {
       if (child.isMesh) {
-        child.material.metalness = 0.5;
-        child.material.roughness = 0.4;
+        child.material.metalness = .5;
+        child.material.roughness = .3;
         child.material.envMapIntensity = 2;
       }
     });
@@ -55,8 +55,8 @@ function CanModel({ shouldAnimate }) {
 
     const baseRotation = Math.PI;
 
-    const targetY = baseRotation + mouse.x * 0.15;
-    const targetX = -mouse.y * 0.08;
+    const targetY = baseRotation + mouse.x * 0.20;
+    const targetX = -mouse.y * 0.20;
 
     ref.current.rotation.y +=
       (targetY - ref.current.rotation.y) * 0.03;
@@ -71,7 +71,7 @@ function CanModel({ shouldAnimate }) {
       object={scene}
       scale={[5, 4.7, 5]}
       rotation={[0, Math.PI, 0]}
-      position={[0, 0, -2]}
+      position={[0, 0, -1]}
     />
   );
 }
@@ -115,8 +115,8 @@ export default function CanViewer() {
           dpr={[1, 1.5]}
           gl={{ antialias: false, powerPreference: "high-performance" }}
         >
-          <AdaptiveDpr pixelated />
-          <AdaptiveEvents />
+          {/* <AdaptiveDpr pixelated />
+          <AdaptiveEvents /> */}
 
           <ambientLight intensity={0.6} />
           <Environment preset="studio" resolution={256} />

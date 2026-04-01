@@ -3,8 +3,10 @@ import { useMutation } from "@tanstack/react-query";
 import { useDispatch } from "react-redux";
 import { setCredentials } from "../store/authSlice";
 import apiClient from "../api/apiClient";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate, Link } from "react-router-dom";
 import { replaceCart } from "../store/cartSlice";
+import { store } from "../store/store";
+
 
 const Login = () => {
     const [email, setEmail] = useState('');
@@ -23,30 +25,111 @@ const Login = () => {
 
         },
     
-        onSuccess: (data)=>{
-            console.log('Database Response: ', data);
-            if(data.length > 0){
-                const user = data[0];
+        // onSuccess: async(data)=>{
+        //     console.log('Database Response: ', data);
+        //     if(data.length > 0){
+        //         const user = data[0];
 
-              if (password.toString() === user.password.toString()) {
-                          // 1. Set Auth Credentials (Existing)
-                          dispatch(setCredentials(user));
+        //       if (password.toString() === user.password.toString()) {
+        //         // 1. Get the Guest Cart currently in Redux
+        //         // We use store.getState() or a temporary variable if you prefer
+        //         const guestCart = store.getState().cart;
 
-                          // 2. THE FIX: Hydrate the cart immediately from the user object
-                          if (user.cart) {
-                              // This ensures the cart fills up WITHOUT a refresh
-                              dispatch(replaceCart(user.cart));
-                          }
-                    const origin = location.state?.from?.pathname || "/";
-                    navigate(origin);
-                }else{
-                    alert('wrong password')
-                }
-            }else{
-                alert('not found');
-            }
+        //         // 2. Get the Saved Cart from the Database (or default to empty if new user)
+        //         const dbCart = user.cart || { items: [], totalQuantity: 0, totalPrice: 0 };
+
+        //         // 3. Combine the items (Logic: Don't duplicate IDs, sum the quantities)
+        //         let mergedItems = [...dbCart.items];
+
+        //           guestCart.items.forEach((guestItem) => {
+        //           const existingItem = mergedItems.find(item => item.id === guestItem.id);
+        //           if (existingItem) {
+        //               existingItem.quantity += guestItem.quantity;
+        //               existingItem.totalItemPrice += guestItem.totalItemPrice;
+        //           } else {
+        //               mergedItems.push(guestItem);
+        //           }
+        //         });
+
+        //         const finalCart ={
+        //           items: mergedItems,
+        //           totalQuantity: guestCart.totalQuantity + dbCart.totalQuantity,
+        //           totalPrice: guestCart.totalPrice + dbCart.totalPrice
+        //         };
+
+        //                   // 1. Set Auth Credentials (Existing)
+        //                   dispatch(setCredentials(user));
+        //                   dispatch(replaceCart(finalCart))
+
+        //                 await apiClient.patch(`/user/${user.id}`,{ cart: finalCart});                          
+        //                 // end
+
+
+        //             const origin = location.state?.from?.pathname || "/";
+        //             navigate(origin);
+        //         }else{
+        //             alert('wrong password')
+        //         }
+        //     }else{
+        //         alert('not found');
+        //     }
             
+        // }
+        onSuccess: async (data) => {
+    console.log('Database Response: ', data);
+    
+    if (data.length > 0) {
+        const user = data[0];
+
+        if (String(password) === String(user.password)) {
+            // --- THE MERGE PROTOCOL STARTS HERE ---
+
+            // 1. Get the Guest Cart currently in Redux
+            // We use store.getState() or a temporary variable if you prefer
+            const guestCart = store.getState().cart; 
+            
+            // 2. Get the Saved Cart from the Database (or default to empty if new user)
+            const dbCart = user.cart || { items: [], totalQuantity: 0, totalPrice: 0 };
+
+            // 3. Combine the items (Logic: Don't duplicate IDs, sum the quantities)
+            let mergedItems = [...dbCart.items];
+
+            guestCart.items.forEach((guestItem) => {
+                const existingItem = mergedItems.find(item => item.id === guestItem.id);
+                if (existingItem) {
+                    existingItem.quantity += guestItem.quantity;
+                    existingItem.totalItemPrice += guestItem.totalItemPrice;
+                } else {
+                    mergedItems.push(guestItem);
+                }
+            });
+
+            // 4. Calculate Final Unified Totals
+            const finalCart = {
+                items: mergedItems,
+                totalQuantity: guestCart.totalQuantity + dbCart.totalQuantity,
+                totalPrice: guestCart.totalPrice + dbCart.totalPrice
+            };
+
+            // 5. UPDATE REDUX (Auth & Cart)
+            dispatch(setCredentials(user));
+            dispatch(replaceCart(finalCart));
+
+            // 6. UPDATE DATABASE (Make the merge permanent in db.json)
+            await apiClient.patch(`/users/${user.id}`, { cart: finalCart });
+
+            // --- END OF MERGE PROTOCOL ---
+
+            const origin = location.state?.from?.pathname || "/";
+            navigate(origin);
+        } else {
+            alert('wrong password');
         }
+    } else {
+        alert('not found');
+    }
+}
+        
     })
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -60,7 +143,6 @@ return (
     {/* subtle gradient glow */}
     <div className="absolute w-[600px] h-[600px] bg-white/5 blur-3xl rounded-full -top-40 -left-40" />
     <div className="absolute w-[500px] h-[500px] bg-white/5 blur-3xl rounded-full bottom-0 right-0" />
-
     <form
       onSubmit={handleSubmit}
       className="
@@ -135,6 +217,17 @@ return (
       >
         {mutation.isPending ? "Authenticating..." : "Login"}
       </button>
+      <div className="mt-4 text-center">
+        <p className="text-white/40 text-[10px] uppercase tracking-[0.2em] font-mono">
+          New Operative?{' '}
+          <Link 
+            to="/register" 
+            className="text-white hover:text-green-500 transition-colors underline underline-offset-4 decoration-white/10 hover:decoration-green-500/50"
+          >
+            Initialize Account
+          </Link>
+        </p>
+      </div>
     </form>
   </div>
 );

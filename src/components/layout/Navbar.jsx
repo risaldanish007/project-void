@@ -4,7 +4,9 @@ import { logout } from "../../store/authSlice";
 import Logo from "./Logo";
 import { useState } from "react";
 import { useEffect } from "react";
-import { clearCart, replaceCart } from "../../store/cartSlice";
+import { replaceCart } from "../../store/cartSlice";
+import apiClient from "../../api/apiClient";
+
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -24,18 +26,41 @@ const Navbar = () => {
 
   const closeMenu = () => setIsMenuOpen(false);
 
-// Navbar.jsx
+
+  // Navbar.jsx
+// Inside Navbar.jsx
 useEffect(() => {
-  // If we just logged in (isAuthenticated) AND the user object has a cart
-  if (isAuthenticated && user?.cart) {
-    // We replace the empty Redux cart with the one from the VOID database
-    dispatch(replaceCart(user.cart));
-    console.log("SIGNAL ACQUIRED: Cart synced from database.");
-  } else if (!isAuthenticated) {
-    // If they log out, we ensure the Redux cart is wiped clean
-    dispatch(clearCart());
-  }
-}, [isAuthenticated, user?.id, dispatch]); // Watch for the Login status change
+  const reacquireCart = async () => {
+    if (isAuthenticated && user?.id) {
+      try {
+        // Fetch fresh user data from DB to get the LATEST cart
+        const response = await apiClient.get(`/users/${user.id}`);
+        const freshCart = response.data.cart;
+
+        if (freshCart && freshCart.items.length > 0) {
+          dispatch(replaceCart(freshCart));
+          console.log("VOID: Signal Reacquired. Cart Synced.");
+        }
+      } catch (err) {
+        console.error("VOID: Reacquisition failed.", err);
+      }
+    }
+  };
+
+  reacquireCart();
+}, [isAuthenticated, user?.id, dispatch]);
+// Navbar.jsx
+// useEffect(() => {
+//   // If we just logged in (isAuthenticated) AND the user object has a cart
+//   if (isAuthenticated && user?.cart) {
+//     // We replace the empty Redux cart with the one from the VOID database
+//     dispatch(replaceCart(user.cart));
+//     console.log("SIGNAL ACQUIRED: Cart synced from database.");
+//   } else if (!isAuthenticated) {
+//     // If they log out, we ensure the Redux cart is wiped clean
+//     dispatch(clearCart());
+//   }
+// }, [isAuthenticated, user?.id, dispatch]); // Watch for the Login status change
 
   return (
     <nav className="fixed top-2 left-1/2 -translate-x-1/2 w-[95%] max-w-7xl bg-[#0a0a0a] border border-white/10 px-6 py-3 flex justify-between items-center z-[100] rounded-full shadow-2xl">
@@ -49,7 +74,7 @@ useEffect(() => {
         
         {/* 1. Desktop Links (Hidden on mobile) */}
         <div className="hidden md:flex items-center gap-8 text-sm font-bold uppercase tracking-widest text-gray-400">
-          <Link to="/" className="hover:text-white transition-colors">Shop</Link>
+          <Link to="/variants" onClick={closeMenu} className="hover:text-white transition-colors">Shop</Link>
           <Link to="/cart" className="relative group">
             <span className="text-xl group-hover:scale-110 block transition-transform">🛒</span>
             {totalQuantity > 0 && (
