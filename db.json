@@ -5,20 +5,11 @@
       "name": "Risal",
       "email": "risaldanish@gmail.com",
       "password": "1234567890",
-      "role": "user",
+      "role": "admin",
       "cart": {
-        "items": [
-          {
-            "id": "p1",
-            "name": "VOID ZERO",
-            "price": 25,
-            "quantity": 2,
-            "totalItemPrice": 50,
-            "image": "/images/void-zero.png"
-          }
-        ],
-        "totalQuantity": 2,
-        "totalPrice": 50
+        "items": [],
+        "totalQuantity": 0,
+        "totalPrice": 0
       },
       "orders": [
         {
@@ -442,6 +433,23 @@
           "paymentId": "pay_SYDhUdYJfFiB4L",
           "status": "Deployed",
           "date": "2026-04-01"
+        },
+        {
+          "id": "VOID-4579",
+          "items": [
+            {
+              "id": "p7",
+              "name": "FORM PEAK",
+              "price": 40,
+              "quantity": 1,
+              "totalItemPrice": 40,
+              "image": "/images/form-peak.png"
+            }
+          ],
+          "total": 40,
+          "paymentId": "pay_SYcn5Ik2pUCibP",
+          "status": "Deployed",
+          "date": "2026-04-02"
         }
       ]
     },
@@ -506,6 +514,19 @@
       "id": "947c",
       "name": "jasla",
       "email": "jasla@gmail.com",
+      "password": "1234567890",
+      "role": "user",
+      "cart": {
+        "items": [],
+        "totalQuantity": 0,
+        "totalPrice": 0
+      },
+      "orders": []
+    },
+    {
+      "id": "b66b",
+      "name": "risal danish",
+      "email": "risaldanish10@gmail.com",
       "password": "1234567890",
       "role": "user",
       "cart": {

@@ -122,35 +122,46 @@ useEffect(() => {
       </div>
 
       {/* MOBILE MENU OVERLAY (The Background) */}
-      <div className={`
-        fixed top-0 left-0 w-full h-screen bg-[#0a0a0a] flex flex-col items-center justify-center gap-10 transition-all duration-500 ease-in-out z-[110]
-        ${isMenuOpen ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0 pointer-events-none"}
-      `}>
-        {/* Background Decorative Element (Optional) */}
-        <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-green-500/10 blur-[120px] rounded-full" />
+          {/* MOBILE MENU OVERLAY */}
+<div className={`
+  fixed top-0 left-0 w-full h-screen bg-[#0a0a0a] flex flex-col items-center justify-center gap-10 transition-all duration-500 ease-in-out z-[110]
+  ${isMenuOpen ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0 pointer-events-none"}
+`}>
+  {/* Background Decorative Element */}
+  <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-green-500/10 blur-[120px] rounded-full" />
 
-        <Link to="/" onClick={closeMenu} className="text-3xl font-bold uppercase tracking-widest text-white hover:text-green-500">Shop</Link>
-        
-        <div className="h-[1px] w-12 bg-white/10" /> {/* Divider */}
+  {/* FIXED: Changed to /variants to match Desktop 'Shop' link */}
+  <Link 
+    to="/variants" 
+    onClick={closeMenu} 
+    className="text-4xl font-black uppercase italic tracking-tighter text-white hover:text-green-500 transition-colors"
+  >
+    Shop
+  </Link>
+  
+  <div className="h-[1px] w-12 bg-white/10" />
 
-        {isAuthenticated ? (
-          <>
-            <Link to="/profile" onClick={closeMenu} className="text-xl text-white">
-              Account: <span className="text-green-500">{user?.name}</span>
-            </Link>
-            <button onClick={handleLogout} className="bg-red-500/10 text-red-500 border border-red-500/20 px-10 py-3 rounded-full font-bold uppercase tracking-tighter">
-              Logout
-            </button>
-          </>
-        ) : (
-          <div className="flex flex-col items-center gap-6 w-full px-10">
-            <Link to="/login" onClick={closeMenu} className="text-2xl text-white font-bold uppercase tracking-widest">Login</Link>
-            <Link to="/register" onClick={closeMenu} className="w-full max-w-[250px] text-center bg-white text-black py-4 rounded-full font-black text-xl hover:bg-green-500 transition-colors">
-              Join Now
-            </Link>
-          </div>
-        )}
-      </div>
+  {isAuthenticated ? (
+    <>
+      <Link to="/profile" onClick={closeMenu} className="text-xl text-white font-mono uppercase tracking-widest">
+        Account: <span className="text-green-500">{user?.name}</span>
+      </Link>
+      <button 
+        onClick={handleLogout} 
+        className="bg-red-500/10 text-red-500 border border-red-500/20 px-10 py-4 rounded-full font-black uppercase tracking-widest text-xs"
+      >
+        Logout System
+      </button>
+    </>
+  ) : (
+    <div className="flex flex-col items-center gap-6 w-full px-10">
+      <Link to="/login" onClick={closeMenu} className="text-2xl text-white font-black uppercase italic tracking-tighter">Login</Link>
+      <Link to="/register" onClick={closeMenu} className="w-full max-w-[300px] text-center bg-white text-black py-5 rounded-full font-black text-xl hover:bg-green-500 transition-colors uppercase tracking-tighter">
+        Join the Void
+      </Link>
+    </div>
+  )}
+</div>
     </nav>
   );
 };

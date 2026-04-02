@@ -28,7 +28,7 @@ const Footer = () => {
             <Link to="/series/FORM" className="hover:text-white transition-colors">Form</Link>
             <Link to="/series/RITE" className="hover:text-white transition-colors">Rite</Link>
             <Link to="/about" className="hover:text-white transition-colors ml-4 border-l border-white/10 pl-8">About</Link>
-            <Link to="/contact" className="hover:text-white transition-colors">Terminal</Link>
+            <Link to="/contact" className="hover:text-white transition-colors">contact</Link>
           </nav>
 
           {/* COMPACT NEWSLETTER */}
