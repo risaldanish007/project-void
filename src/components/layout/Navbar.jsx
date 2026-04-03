@@ -6,6 +6,7 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { replaceCart } from "../../store/cartSlice";
 import apiClient from "../../api/apiClient";
+import AdminLink from "../../admin/layouts/AdminLink";
 
 
 const Navbar = () => {
@@ -83,11 +84,12 @@ useEffect(() => {
               </span>
             )}
           </Link>
+          
           {isAuthenticated ? (
             <div className="flex items-center gap-6 border-l border-white/10 pl-8">
               <Link to="/profile" className="text-white hover:text-green-500 transition-colors lowercase font-medium">
                 Hi, <span className="text-green-500">{user?.name}</span>
-              </Link>
+              </Link><AdminLink/>
               <button onClick={handleLogout} className="bg-white/5 hover:bg-red-500/20 hover:text-red-500 border border-white/10 px-5 py-2 rounded-full transition-all text-xs">
                 Logout
               </button>
@@ -111,6 +113,7 @@ useEffect(() => {
             </span>
           )}
         </Link>
+        
 
         {/* 3. Hamburger Toggle */}
         <button 
@@ -140,6 +143,7 @@ useEffect(() => {
   </Link>
   
   <div className="h-[1px] w-12 bg-white/10" />
+  
 
   {isAuthenticated ? (
     <>

@@ -103,38 +103,40 @@ const Cart = () => {
           ))}
         </div>
 
-        {/* Summary */}
-        <div className="col-span-12 lg:col-span-5">
-          <div className="sticky top-32 border-l border-white/10 pl-10">
-            <h2 className="text-sm uppercase tracking-[0.4em] text-white/40 mb-10">
-              Summary
-            </h2>
+{/* Summary */}
+<div className="col-span-12 lg:col-span-5">
+  <div className="sticky top-32 border-l border-white/10 pl-10">
+    <h2 className="text-sm uppercase tracking-[0.4em] text-white/40 mb-10">
+      Summary
+    </h2>
 
-            <div className="space-y-4">
-              <div className="flex justify-between text-white/60 italic">
-                <span>Subtotal</span>
-                <span>${totalPrice.toFixed(2)}</span>
-              </div>
+    <div className="space-y-4">
+      <div className="flex justify-between text-white/60 italic">
+        <span>Subtotal</span>
+        {/* SAFE FIX HERE */}
+        <span>${Number(totalPrice || 0).toFixed(2)}</span>
+      </div>
 
-              <div className="flex justify-between text-3xl tracking-tight">
-                <span className="font-extralight uppercase">Total</span>
-                <span className="font-medium">
-                  ${totalPrice.toFixed(2)}
-                </span>
-              </div>
-            </div>
+      <div className="flex justify-between text-3xl tracking-tight">
+        <span className="font-extralight uppercase">Total</span>
+        <span className="font-medium">
+          {/* SAFE FIX HERE */}
+          ${Number(totalPrice || 0).toFixed(2)}
+        </span>
+      </div>
+    </div>
 
-            <button
-              onClick={() => navigate("/checkout")}
-              className="w-full mt-12 h-16 border border-white text-[11px] tracking-[0.4em] uppercase relative overflow-hidden group"
-            >
-              <span className="relative z-10 group-hover:text-black transition">
-                Proceed
-              </span>
-              <div className="absolute inset-0 bg-white translate-y-full group-hover:translate-y-0 transition-transform duration-500" />
-            </button>
-          </div>
-        </div>
+    <button
+      onClick={() => navigate("/checkout")}
+      className="w-full mt-12 h-16 border border-white text-[11px] tracking-[0.4em] uppercase relative overflow-hidden group"
+    >
+      <span className="relative z-10 group-hover:text-black transition">
+        Proceed
+      </span>
+      <div className="absolute inset-0 bg-white translate-y-full group-hover:translate-y-0 transition-transform duration-500" />
+    </button>
+  </div>
+</div>
 
       </div>
     </div>

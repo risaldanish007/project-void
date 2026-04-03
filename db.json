@@ -7,9 +7,42 @@
       "password": "1234567890",
       "role": "admin",
       "cart": {
-        "items": [],
-        "totalQuantity": 0,
-        "totalPrice": 0
+        "items": [
+          {
+            "id": "p1",
+            "name": "VOID ZERO",
+            "price": 25,
+            "quantity": 4,
+            "totalItemPrice": 100,
+            "image": "/images/void-zero.png"
+          },
+          {
+            "id": "p3",
+            "name": "FLOW ZEN",
+            "price": 30,
+            "quantity": 4,
+            "totalItemPrice": 120,
+            "image": "/images/flow-zen.png"
+          },
+          {
+            "id": "p2",
+            "name": "FLOW IO",
+            "price": 30,
+            "quantity": 1,
+            "totalItemPrice": 30,
+            "image": "/images/flow-io.png"
+          },
+          {
+            "id": "p4",
+            "name": "FLOW AXIS",
+            "price": 30,
+            "quantity": 1,
+            "totalItemPrice": 30,
+            "image": "/images/flow-axis.png"
+          }
+        ],
+        "totalQuantity": 10,
+        "totalPrice": 280
       },
       "orders": [
         {
@@ -382,7 +415,7 @@
           ],
           "total": 155,
           "paymentId": "pay_SYCsDUZW9VO1ws",
-          "status": "Deployed",
+          "status": "Pending",
           "date": "2026-04-01"
         },
         {
@@ -431,7 +464,7 @@
           ],
           "total": 340,
           "paymentId": "pay_SYDhUdYJfFiB4L",
-          "status": "Deployed",
+          "status": "Pending",
           "date": "2026-04-01"
         },
         {
@@ -448,39 +481,114 @@
           ],
           "total": 40,
           "paymentId": "pay_SYcn5Ik2pUCibP",
-          "status": "Deployed",
+          "status": "Pending",
           "date": "2026-04-02"
         }
-      ]
+      ],
+      "status": "Active"
     },
     {
-      "id": "17c0",
-      "name": "12345",
-      "email": "risaldanish7@gmail.com",
+      "id": "440a",
+      "name": "leo messi",
+      "email": "leomessi@email.com",
       "password": "1234567890",
-      "role": "user",
+      "role": "admin",
       "cart": {
-        "items": [
-          {
-            "id": "p1",
-            "name": "VOID ZERO",
-            "price": 25,
-            "quantity": 1,
-            "totalItemPrice": 25,
-            "image": "/images/void-zero.png"
-          }
-        ],
-        "totalQuantity": 1,
-        "totalPrice": 25
+        "items": [],
+        "totalQuantity": 0,
+        "totalPrice": 0
       },
-      "orders": []
+      "orders": [
+        {
+          "id": "VOID-5878",
+          "items": [
+            {
+              "id": "p3",
+              "name": "FLOW ZEN",
+              "price": 30,
+              "quantity": 12,
+              "totalItemPrice": 360,
+              "image": "/images/flow-zen.png"
+            },
+            {
+              "id": "p2",
+              "name": "FLOW IO",
+              "price": 30,
+              "quantity": 19,
+              "totalItemPrice": 570,
+              "image": "/images/flow-io.png"
+            },
+            {
+              "id": "p4",
+              "name": "FLOW AXIS",
+              "price": 30,
+              "quantity": 10,
+              "totalItemPrice": 300,
+              "image": "/images/flow-axis.png"
+            },
+            {
+              "id": "p7",
+              "name": "FORM PEAK",
+              "price": 40,
+              "quantity": 10,
+              "totalItemPrice": 400,
+              "image": "/images/form-peak.png"
+            },
+            {
+              "id": "p8",
+              "name": "FORM BASE",
+              "price": 20,
+              "quantity": 11,
+              "totalItemPrice": 220,
+              "image": "/images/form-base.png"
+            },
+            {
+              "id": "p10",
+              "name": "DUSK",
+              "price": 30,
+              "quantity": 10,
+              "totalItemPrice": 300,
+              "image": "/images/rite-dusk.png"
+            },
+            {
+              "id": "p9",
+              "name": "NOX",
+              "price": 45,
+              "quantity": 17,
+              "totalItemPrice": 765,
+              "image": "/images/rite-nox.png"
+            },
+            {
+              "id": "9e37",
+              "name": "TEST ITEM",
+              "price": 12,
+              "quantity": 14,
+              "totalItemPrice": 168,
+              "image": "/image"
+            },
+            {
+              "id": "p11",
+              "name": "ECHO",
+              "price": 45,
+              "quantity": 7,
+              "totalItemPrice": 315,
+              "image": "/images/rite-echo.png"
+            }
+          ],
+          "total": 3398,
+          "paymentId": "pay_SZ3QN0ZYYQV5xC",
+          "status": "pending",
+          "date": "2026-04-03"
+        }
+      ],
+      "status": "Active"
     },
     {
-      "id": "22b1",
-      "name": "Wolfeschlegelsteinhausenbergerdorff",
-      "email": "risaldanish0@gmail.com",
+      "id": "d6fe",
+      "name": "max",
+      "email": "max@yahoo.in",
       "password": "1234567890",
-      "role": "user",
+      "role": "customer",
       "cart": {
         "items": [],
         "totalQuantity": 0,
@@ -489,52 +597,18 @@
       "orders": []
     },
     {
-      "id": "4585",
-      "name": "new acc",
-      "email": "risaldanish12@gmail.com",
-      "password": "1234567890",
-      "role": "user",
-      "cart": {
-        "items": [
-          {
-            "id": "p3",
-            "name": "FLOW ZEN",
-            "price": 30,
-            "quantity": 1,
-            "totalItemPrice": 30,
-            "image": "/images/flow-zen.png"
-          }
-        ],
-        "totalQuantity": 1,
-        "totalPrice": 30
-      },
-      "orders": []
-    },
-    {
-      "id": "947c",
-      "name": "jasla",
-      "email": "jasla@gmail.com",
-      "password": "1234567890",
-      "role": "user",
+      "id": "0b74",
+      "name": "alone mask",
+      "email": "lonelymask@tesla.inc",
+      "password": "1234",
+      "role": "customer",
       "cart": {
         "items": [],
         "totalQuantity": 0,
         "totalPrice": 0
       },
-      "orders": []
-    },
-    {
-      "id": "b66b",
-      "name": "risal danish",
-      "email": "risaldanish10@gmail.com",
-      "password": "1234567890",
-      "role": "user",
-      "cart": {
-        "items": [],
-        "totalQuantity": 0,
-        "totalPrice": 0
-      },
-      "orders": []
+      "orders": [],
+      "status": "Banned"
     }
   ],
   "products": [
@@ -564,7 +638,8 @@
           "name": "Natural Caffeine",
           "benefit": "Sustained Power"
         }
-      ]
+      ],
+      "stock": "100"
     },
     {
       "id": "p2",
@@ -806,6 +881,23 @@
         {
           "name": "L-Tyrosine",
           "benefit": "Dopamine Support"
+        }
+      ]
+    },
+    {
+      "id": "9e37",
+      "name": "TEST ITEM",
+      "description": "an example paragraph for product details",
+      "price": "12",
+      "image": "/image",
+      "imageBg": "/imagesBg/void-prod-bg.png",
+      "category": "Energy",
+      "series": "VOID FLOW",
+      "stock": "150",
+      "ingredients": [
+        {
+          "name": "example 1",
+          "benefit": "example 2"
         }
       ]
     }

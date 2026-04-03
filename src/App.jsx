@@ -25,6 +25,10 @@ import AdminLayout from "./admin/layouts/AdminLayout";
 import AdminDashboard from "./admin/pages/AdminDashboard";
 import InventoryManager from "./admin/pages/InventoryManager";
 import PublicLayout from "./components/layout/PublicLayout";
+import OrderManifest from "./admin/pages/OrderManifest";
+import UserDirectory from "./admin/pages/UserDirectory";
+import Banned from "./pages/Banned";
+
 
 function App() {
   useCartSync();
@@ -55,6 +59,7 @@ function App() {
             <Route path="/profile" element={<Profile />} />
             <Route path="/checkout" element={<Checkout />} />
             <Route path="/success" element={<Success />} />
+            <Route path="/banned" element={<Banned />} />
           </Route>
         </Route>
 
@@ -63,6 +68,8 @@ function App() {
           <Route path="/admin" element={<AdminLayout />}>
             <Route index element={<AdminDashboard />} />
             <Route path="inventory" element={<InventoryManager />} />
+            <Route path="orders" element={<OrderManifest/>} />
+            <Route path="users" element={<UserDirectory/>}/>
           </Route>
         </Route>
 
@@ -72,15 +79,16 @@ function App() {
 
       {/* Keep ToastContainer outside so it works everywhere */}
       <ToastContainer 
-        theme="dark"
-        position="bottom-right"
-        autoClose={1600}
-        hideProgressBar={true}
-        closeButton={false}
-        toastClassName={() => 
-          "relative flex p-1 min-h-10 rounded-2xl justify-between overflow-hidden cursor-pointer bg-white shadow-xl"
-        }
-      />
+  theme="dark"
+  position="bottom-right"
+  autoClose={1600}
+  hideProgressBar={true}
+  closeButton={false}
+  toastClassName={() => 
+    "relative flex p-4 min-h-10 rounded-2xl justify-between overflow-hidden cursor-pointer bg-[#0a0a0a] border border-white/10 shadow-2xl mb-4 font-mono text-[10px] uppercase tracking-widest"
+  }
+  bodyClassName={() => "flex items-center text-white"} // Ensures the text is strictly white
+/>
     </Router>
   );
 }

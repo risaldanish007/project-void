@@ -63,7 +63,7 @@ const Register = () => {
             name,
             email,
             password: String(password),
-            role: "user",
+            role: "customer",
             cart: { items: [], totalQuantity: 0, totalPrice: 0 },
             orders: []
         });

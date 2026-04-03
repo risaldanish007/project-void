@@ -37,7 +37,7 @@ const Checkout = () => {
             items: items,
             total: totalPrice,
             paymentId: response.razorpay_payment_id,
-            status: "Deployed",
+            status: "pending",
             date: new Date().toISOString().split('T')[0]
         };
 
