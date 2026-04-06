@@ -115,11 +115,11 @@ export default function CanViewer() {
           dpr={[1, 1.5]}
           gl={{ antialias: false, powerPreference: "high-performance" }}
         >
-          {/* <AdaptiveDpr pixelated />
-          <AdaptiveEvents /> */}
+          <AdaptiveDpr pixelated />
+          <AdaptiveEvents />
 
           <ambientLight intensity={0.6} />
-          <Environment preset="studio" resolution={256} />
+          <Environment preset="studio" resolution={200} />
           <directionalLight position={[5, 5, 9]} intensity={1.5} />
 
           <ModelWithReady onReady={() => setReady(true)} />
@@ -129,4 +129,4 @@ export default function CanViewer() {
   );
 }
 
-useGLTF.preload("/3d/can4.glb");
+useGLTF.preload("/3d/can5.glb");

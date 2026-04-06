@@ -44,15 +44,13 @@ const cartSlice = createSlice({
             const newItem = action.payload;
             const existingItem = state.items.find((item) => item.id === newItem.id);
 
+            // Keep this check for data integrity, but REMOVE the toast call
+            if (existingItem && existingItem.quantity >= (newItem.countInStock || newItem.stock)) {
+                return; 
+            }
+
             if (!existingItem) {
-                state.items.push({
-                    id: newItem.id,
-                    name: newItem.name,
-                    price: Number(newItem.price),
-                    quantity: 1,
-                    totalItemPrice: Number(newItem.price),
-                    image: newItem.image,
-                });
+                state.items.push({ ...newItem, quantity: 1, totalItemPrice: newItem.price });
             } else {
                 existingItem.quantity++;
                 existingItem.totalItemPrice += Number(newItem.price);

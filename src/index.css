@@ -119,4 +119,5 @@ html, body {
 .admin-input {
   @apply w-full bg-white/5 border border-white/10 rounded-xl px-5 py-3 font-mono text-sm text-white focus:border-green-500 outline-none transition-all placeholder:text-white/10;
 }
+
 @import "tailwindcss";

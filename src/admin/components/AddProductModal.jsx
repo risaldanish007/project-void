@@ -123,7 +123,7 @@ const AddProductModal = ({ isOpen, onClose, onSave, initialData }) => {
                       onClick={() => removeIngredient(index)} 
                       className="text-white/20 hover:text-red-500 px-2 transition-colors text-lg"
                     >
-                      ×
+                       × 
                     </button>
                   )}
                 </div>
@@ -138,10 +138,10 @@ const AddProductModal = ({ isOpen, onClose, onSave, initialData }) => {
                 className="w-full bg-[#0a0a0a] border border-white/10 rounded-xl px-5 py-3 text-white font-mono text-sm outline-none appearance-none focus:border-green-500 cursor-pointer" 
                 onChange={(e) => setFormData({...formData, series: e.target.value})}
               >
-                <option className="bg-[#0a0a0a] text-white" value="VOID FLOW">VOID FLOW</option>
-                <option className="bg-[#0a0a0a] text-white" value="VOID ZERO">VOID ZERO</option>
-                <option className="bg-[#0a0a0a] text-white" value="VOID RITE">VOID RITE</option>
-                <option className="bg-[#0a0a0a] text-white" value="VOID FORM">VOID FORM</option>
+                <option className="bg-[#0a0a0a] text-white" value="FLOW">VOID FLOW</option>
+                <option className="bg-[#0a0a0a] text-white" value="VOID">VOID ZERO</option>
+                <option className="bg-[#0a0a0a] text-white" value="RITE">VOID RITE</option>
+                <option className="bg-[#0a0a0a] text-white" value="FORM">VOID FORM</option>
               </select>
             </div>
 

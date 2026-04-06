@@ -12,7 +12,7 @@ const AdminDashboard = () => {
     },
   });
 
-  if (isLoading) return <div className="text-green-500 font-mono animate-pulse p-10 text-xs">CALCULATING_INTEL...</div>;
+  if (isLoading) return <div className="text-green-500 font-mono animate-pulse p-10 text-xs">loading data please wait..</div>;
 
   // --- ANALYTICS ENGINE ---
   const allOrders = users?.flatMap(u => u.orders) || [];

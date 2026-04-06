@@ -29,24 +29,30 @@ const ProductDetail = () => {
     </div>
   );
 
+  // --- INVENTORY LOGIC ---
+  const stockCount = Number(product.stock || 0);
+  const isOutOfStock = stockCount <= 0;
+  const isLowStock = stockCount > 0 && stockCount <= 10;
+
   const handleAddToCart = () => {
+    if (isOutOfStock) return;
+
     dispatch(addToCart(product));
-                            toast.success(
-                                <div className="flex items-center gap-3 px-2 py-1">
-                                  <div className="w-8 h-8 rounded-full bg-green-500/10 flex items-center justify-center">
-                                    <span className="text-green-600 text-xs">✓</span>
-                                  </div>
-                                  <span className="text-gray-800 font-bold text-sm tracking-tight">
-                                    Added to cart
-                                  </span>
-                                </div>,
-                                {
-                                  // Custom white gradient styling
-                                  style: {
-                                    background: "linear-gradient(to bottom right, #ffffff, #f9fafb)",
-                                  }
-                                }
-                              );
+    toast.success(
+      <div className="flex items-center gap-3 px-2 py-1">
+        <div className="w-8 h-8 rounded-full bg-green-500/10 flex items-center justify-center">
+          <span className="text-green-600 text-xs">✓</span>
+        </div>
+        <span className="text-gray-800 font-bold text-sm tracking-tight">
+          Added to cart
+        </span>
+      </div>,
+      {
+        style: {
+          background: "linear-gradient(to bottom right, #ffffff, #f9fafb)",
+        }
+      }
+    );
   };
 
   return (
@@ -58,12 +64,22 @@ const ProductDetail = () => {
 
       <div className="relative z-10 max-w-7xl mx-auto px-10 w-full flex justify-end">
         
-        {/* ULTRA-MINIMAL GLASS PANEL */}
-        <div className=" mt-25 text-white max-w-md p-8 bg-white/[0.02] backdrop-blur-md rounded-xl border border-white/5 shadow-2xl">
+        <div className={`mt-25 text-white max-w-md p-8 bg-white/[0.02] backdrop-blur-md rounded-xl border border-white/5 shadow-2xl transition-all ${isOutOfStock ? 'opacity-80 grayscale-[0.5]' : ''}`}>
           
-          <p className="text-green-500 font-bold uppercase tracking-[0.4em] text-[9px] mb-2">
-            {product.category}
-          </p>
+          <div className="flex justify-between items-start mb-2">
+            <p className="text-green-500 font-bold uppercase tracking-[0.4em] text-[9px]">
+              {product.category}
+            </p>
+            
+            {/* STOCK INDICATOR */}
+            {isOutOfStock ? (
+              <span className="text-red-500 font-mono text-[9px] uppercase tracking-widest bg-red-500/10 px-2 py-1 rounded">out of stock</span>
+            ) : isLowStock ? (
+              <span className="text-yellow-500 font-mono text-[9px] uppercase tracking-widest animate-pulse">LIMITED: {stockCount}</span>
+            ) : (
+              <span className="text-white/20 font-mono text-[9px] uppercase tracking-widest">Stock_Verified</span>
+            )}
+          </div>
 
           <h1 className="text-5xl font-black uppercase mb-4 tracking-tighter">
             {product.name}
@@ -73,26 +89,30 @@ const ProductDetail = () => {
             {product.description}
           </p>
 
-          {/* MINIMAL INGREDIENTS */}
           <div className="mb-10 grid grid-cols-2 gap-4 border-y border-white/5 py-6">
             {product.ingredients?.map((item, index) => (
               <div key={index} className="flex flex-col">
                 <span className="text-white font-bold text-[11px] uppercase tracking-wide">
                   {item.name}
                 </span>
-                {/* We can keep or remove the benefit here; removing it is more minimal */}
               </div>
             ))}
           </div>
 
           <div className="flex items-center justify-between">
-            <span className="text-3xl font-black">${product.price}</span>
+            <span className={`text-3xl font-black ${isOutOfStock ? 'text-white/20' : 'text-white'}`}>
+              ${product.price}
+            </span>
+            
             <button 
               onClick={handleAddToCart}
-              
-              className="bg-white text-black px-8 py-3 rounded-lg font-black uppercase text-xs tracking-widest hover:bg-green-500 hover:text-white transition-colors active:scale-95"
+              disabled={isOutOfStock}
+              className={`px-8 py-3 rounded-lg font-black uppercase text-xs tracking-widest transition-all active:scale-95
+                ${isOutOfStock 
+                  ? 'bg-zinc-800 text-zinc-500 cursor-not-allowed border border-white/5' 
+                  : 'bg-white text-black hover:bg-green-500 hover:text-white'}`}
             >
-              Add to Cart
+              {isOutOfStock ? "Out of Stock" : "Add to Cart"}
             </button>
           </div>
         </div>

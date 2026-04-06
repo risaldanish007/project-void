@@ -1,6 +1,7 @@
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { useEffect, useState } from "react"; // Added useEffect
+import { useEffect, useState } from "react"; 
+import { useQuery, useQueryClient } from "@tanstack/react-query"; 
 import apiClient from "../api/apiClient";
 import { clearCart } from "../store/cartSlice";
 
@@ -10,6 +11,17 @@ const Checkout = () => {
     const [isProcessing, setIsProcessing] = useState(false);
     const dispatch = useDispatch();
     const navigate = useNavigate();
+    const queryClient = useQueryClient();
+
+    // INTELLIGENCE_GATHERING: Fetch latest user data to prevent overwriting history
+    const { data: userData } = useQuery({
+        queryKey: ["userProfile", user?.id],
+        queryFn: async () => {
+            const response = await apiClient.get(`/users/${user.id}`);
+            return response.data;
+        },
+        enabled: !!user?.id,
+    });
 
     // Safety redirect if cart is empty
     useEffect(() => {
@@ -28,40 +40,57 @@ const Checkout = () => {
             currency: "INR", 
             name: "VOID ENERGY",
             description: "Signal Deployment Protocol",
-            // Inside Checkout.jsx handler
             handler: async function (response) {
-    try {
-        // 1. Prepare the Data Migration (Cart -> Orders)
-        const newOrder = {
-            id: `VOID-${Math.floor(1000 + Math.random() * 9000)}`,
-            items: items,
-            total: totalPrice,
-            paymentId: response.razorpay_payment_id,
-            status: "pending",
-            date: new Date().toISOString().split('T')[0]
-        };
+                try {
+                    // 1. Prepare the Data Migration (Cart -> Orders)
+                    const newOrder = {
+                        id: `VOID-${Math.floor(1000 + Math.random() * 9000)}`,
+                        items: items,
+                        total: totalPrice,
+                        paymentId: response.razorpay_payment_id,
+                        status: "pending",
+                        date: new Date().toISOString().split('T')[0]
+                    };
 
-        const updatedOrders = [...(user.orders || []), newOrder];
+                    const updatedOrders = [...(userData?.orders || []), newOrder];
 
-        // 2. Update the Database FIRST
-        await apiClient.patch(`/users/${user.id}`, {
-            orders: updatedOrders,
-            cart: { items: [], totalQuantity: 0, totalPrice: 0 }
-        });
+                    // 2. INVENTORY_DEDUCTION_LOGIC
+                    // We generate a list of patch requests for each item to decrease stock
+                    const inventoryUpdates = items.map(item => {
+                        const currentStock = Number(item.stock || 0);
+                        const newStock = currentStock - item.quantity;
+                        
+                        return apiClient.patch(`/products/${item.id}`, { 
+                            stock: Math.max(0, newStock) 
+                        });
+                    });
 
-        // 3. Update Redux so the UI knows the cart is empty
-        dispatch(clearCart());
-        
-        // 4. THE JUMP: Redirect to the Success Page
-        console.log("UPLINK SUCCESSFUL: Redirecting to Success Terminal...");
-        navigate("/success"); 
+                    // 3. EXECUTE SIMULTANEOUS UPLINK
+                    // We update the products, user orders, and clear cart in one wave
+                    await Promise.all([
+                        ...inventoryUpdates,
+                        apiClient.patch(`/users/${user.id}`, {
+                            orders: updatedOrders,
+                            cart: { items: [], totalQuantity: 0, totalPrice: 0 }
+                        })
+                    ]);
 
-    } catch (error) {
-        setIsProcessing(false)
-        console.error(error);
-        alert("Payment received, but database sync failed. Do not refresh.");
-    }
-},
+                    // 4. THE SYNC: Refresh all relevant data caches
+                    queryClient.invalidateQueries(["userProfile", user.id]);
+                    queryClient.invalidateQueries(["adminProducts"]); // Updates the Shop/Inventory lists
+
+                    // 5. Update Redux so the UI knows the cart is empty
+                    dispatch(clearCart());
+                    
+                    console.log("UPLINK SUCCESSFUL: Redirecting to Success Terminal...");
+                    navigate("/success"); 
+
+                } catch (error) {
+                    setIsProcessing(false)
+                    console.error(error);
+                    alert("Payment received, but database sync failed. Do not refresh.");
+                }
+            },
             prefill: {
                 name: user?.name,
                 email: user?.email,
@@ -129,7 +158,7 @@ const Checkout = () => {
             />
           </section>
 
-          {/* Payment */}
+          {/* Payment Protocol */}
           <section className="space-y-5">
             <label className="text-[10px] uppercase tracking-[0.5em] text-cyan-500/70">
               Payment Protocol

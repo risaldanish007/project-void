@@ -106,8 +106,8 @@ const UserDirectory = () => {
       {/* --- HEADER SECTOR --- */}
       <header className="mb-10 flex flex-col md:flex-row md:items-end justify-between gap-6">
         <div>
-          <h2 className="text-xl font-bold uppercase italic tracking-[0.2em] text-white/40">Citizen_Directory</h2>
-          <p className="text-[10px] font-mono text-white/10 mt-2 uppercase tracking-widest">
+          <h2 className="text-xl font-bold uppercase italic tracking-[0.2em] text-white/40">user managment</h2>
+          <p className="text-[10px] font-mono text-white/40 mt-2 uppercase tracking-widest">
             {users?.length} Authorized identities detected in the VOID.
           </p>
         </div>
@@ -126,7 +126,7 @@ const UserDirectory = () => {
         <table className="w-full text-left border-collapse">
           <thead>
             <tr className="border-b border-white/5 text-[9px] font-mono text-gray-400 uppercase tracking-[0.3em] bg-white/[0.01]">
-              <th className="p-6">Citizen</th>
+              <th className="p-6">Users</th>
               <th className="p-6">Status</th>
               <th className="p-6">Activity</th>
               <th className="p-6 text-right">Protocol</th>
@@ -190,7 +190,7 @@ const UserDirectory = () => {
                       </button>
 
                       {/* Delete: Disabled for self */}
-                      <button 
+                      <button
                         disabled={isSelf}
                         onClick={() => setConfirmationNode({ user, type: 'banish' })}
                         className={`text-[9px] font-black uppercase tracking-widest border px-4 py-2 rounded-lg transition-all

@@ -6,6 +6,21 @@ import apiClient from "../api/apiClient";
 import { useNavigate, Link } from "react-router-dom";
 import { toast } from "react-toastify";
 
+/**
+ * @protocol VALIDATION_HELPERS
+ * @description Ensuring data integrity before mainframe transmission.
+ */
+const validateName = (name) => {
+    const nameRegex = /^[a-zA-Z\s]*$/;
+    return name.length >= 2 && nameRegex.test(name);
+};
+
+const validatePassword = (pass) => {
+    // Rules: Min 8 chars, 1 uppercase, 1 lowercase, 1 number, 1 special char
+    const passRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+    return passRegex.test(pass);
+};
+
 const Register = () => {
     // --- STATE MANAGEMENT ---
     const [name, setName] = useState('');
@@ -52,18 +67,33 @@ const Register = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        // Validation: Verify password synchronization.
+        // 1. NAME_INTEGRITY_CHECK
+        if (!validateName(name)) {
+            toast.error("[!] VALIDATION_ERROR: Name must be text-only (Min 2 chars).");
+            return;
+        }
+
+        // 2. PASSWORD_STRENGTH_CHECK
+        if (!validatePassword(password)) {
+            toast.error(
+                "[!] WEAK_CREDENTIALS: Use 8+ chars, uppercase, lowercase, number, and special char."
+            );
+            return;
+        }
+
+        // 3. SYNCHRONIZATION_CHECK: Verify password matching.
         if (password !== confirmPassword) {
             toast.error("[!] VALIDATION_ERROR: Passwords do not match.");
             return;
         }
 
-        // Execution: Transmit the standardized operative object.
+        // 4. EXECUTION: Transmit the standardized operative object.
         mutation.mutate({
-            name,
-            email,
+            name: name.trim(),
+            email: email.toLowerCase().trim(),
             password: String(password),
             role: "customer",
+            status: "Active", // Initialized for Ban Logic compatibility
             cart: { items: [], totalQuantity: 0, totalPrice: 0 },
             orders: []
         });
@@ -79,17 +109,7 @@ const Register = () => {
             {/* --- REGISTRATION FORM --- */}
             <form
                 onSubmit={handleSubmit}
-                className="
-                    relative z-10
-                    w-[350px]
-                    p-8
-                    rounded-2xl
-                    bg-white/5
-                    backdrop-blur-xl
-                    border border-white/10
-                    shadow-2xl
-                    flex flex-col gap-4
-                "
+                className="relative z-10 w-[350px] p-8 rounded-2xl bg-white/5 backdrop-blur-xl border border-white/10 shadow-2xl flex flex-col gap-4"
             >
                 <h2 className="text-white text-2xl font-semibold tracking-wide">
                     Register
@@ -100,17 +120,7 @@ const Register = () => {
                     placeholder="Full Name"
                     value={name}
                     onChange={(e) => setName(e.target.value)}
-                    className="
-                        bg-white/5
-                        border border-white/10
-                        rounded-lg
-                        px-4 py-3
-                        text-white
-                        placeholder-white/40
-                        outline-none
-                        focus:border-white/30
-                        transition
-                    "
+                    className="bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white placeholder-white/40 outline-none focus:border-white/30 transition"
                     required
                 />
 
@@ -119,17 +129,7 @@ const Register = () => {
                     placeholder="Email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    className="
-                        bg-white/5
-                        border border-white/10
-                        rounded-lg
-                        px-4 py-3
-                        text-white
-                        placeholder-white/40
-                        outline-none
-                        focus:border-white/30
-                        transition
-                    "
+                    className="bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white placeholder-white/40 outline-none focus:border-white/30 transition"
                     required
                 />
 
@@ -138,17 +138,7 @@ const Register = () => {
                     placeholder="Password"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
-                    className="
-                        bg-white/5
-                        border border-white/10
-                        rounded-lg
-                        px-4 py-3
-                        text-white
-                        placeholder-white/40
-                        outline-none
-                        focus:border-white/30
-                        transition
-                    "
+                    className="bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white placeholder-white/40 outline-none focus:border-white/30 transition"
                     required
                 />
 
@@ -157,35 +147,14 @@ const Register = () => {
                     placeholder="Confirm Password"
                     value={confirmPassword}
                     onChange={(e) => setConfirmPassword(e.target.value)}
-                    className="
-                        bg-white/5
-                        border border-white/10
-                        rounded-lg
-                        px-4 py-3
-                        text-white
-                        placeholder-white/40
-                        outline-none
-                        focus:border-white/30
-                        transition
-                    "
+                    className="bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white placeholder-white/40 outline-none focus:border-white/30 transition"
                     required
                 />
 
                 <button
                     type="submit"
                     disabled={mutation.isPending}
-                    className="
-                        mt-2
-                        bg-white/10
-                        hover:bg-white/20
-                        text-white
-                        py-3
-                        rounded-lg
-                        border border-white/10
-                        backdrop-blur-md
-                        transition
-                        active:scale-[0.98]
-                    "
+                    className="mt-2 bg-white/10 hover:bg-white/20 text-white py-3 rounded-lg border border-white/10 backdrop-blur-md transition active:scale-[0.98]"
                 >
                     {mutation.isPending ? "Initializing..." : "Register"}
                 </button>
