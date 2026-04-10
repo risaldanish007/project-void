@@ -7,6 +7,7 @@ import CanViewer from '../components/layout/CanModel';
 import { COLLECTIONS } from '../utils/constants';
 import { toast } from 'react-toastify';
 
+
 const Home = () => {
   const dispatch = useDispatch();
   const cartItems = useSelector((state) => state.cart.items);
@@ -46,7 +47,11 @@ const Home = () => {
     });
   };
 
-  if (isLoading) return <div className="flex justify-center mt-20 text-white animate-pulse font-mono uppercase tracking-widest text-xs">Scanning the VOID...</div>;
+  // --- INITIAL SYSTEM LOADER ---
+  if (isLoading) return (
+    <VoidLoader/>
+  );
+
   if (isError) return <div className="text-center mt-20 text-red-500 font-mono uppercase tracking-widest text-xs">Signal lost.</div>;
 
   return (
@@ -108,6 +113,47 @@ const Home = () => {
           </div>
         </section>
 
+        {/* SECTION 2.5: BRAND INTELLIGENCE (NEW) */}
+        <section className="relative py-32 bg-[#0a0a0a] border-t border-white/5 overflow-hidden">
+          <div className="max-w-7xl mx-auto px-6 relative z-10">
+            <div className="grid md:grid-cols-2 gap-16 items-center">
+              <div>
+                <span className="text-cyan-500 font-mono text-[10px] tracking-[0.4em] uppercase mb-6 block">Corporate Intelligence</span>
+                <h2 className="text-4xl md:text-5xl font-black text-white uppercase italic tracking-tighter mb-8">
+                  Not just an energy drink.<br/>
+                  A <span className="text-white/40">performance state.</span>
+                </h2>
+                <div className="space-y-6 text-gray-400 font-light leading-relaxed">
+                  <p>
+                    VOID ENERGY was established to eradicate the standard boom-and-bust cycle of traditional caffeine consumption. We do not sell sugar water. We engineer highly calibrated liquid hardware.
+                  </p>
+                  <p>
+                    Every can is a calculated matrix of nootropics, adaptogens, and clean energy vectors designed to push your neuro-physical limits. Whether you are coding a zero-day exploit, designing a multi-layered matrix, or pushing your physical chassis to its absolute peak, we provide the fuel.
+                  </p>
+                </div>
+                <div className="mt-10 grid grid-cols-2 gap-6 border-t border-white/10 pt-10">
+                  <div>
+                    <h4 className="text-white font-black italic uppercase text-xl mb-2">0g Sugar</h4>
+                    <p className="text-[10px] font-mono text-gray-500 uppercase tracking-widest">Zero Glycemic Crash</p>
+                  </div>
+                  <div>
+                    <h4 className="text-white font-black italic uppercase text-xl mb-2">Nootropic Core</h4>
+                    <p className="text-[10px] font-mono text-gray-500 uppercase tracking-widest">L-Theanine + Alpha GPC</p>
+                  </div>
+                </div>
+              </div>
+              <div className="relative h-[400px] border border-white/10 rounded-3xl overflow-hidden bg-black flex items-center justify-center group shadow-2xl">
+                 <div className="absolute inset-0 bg-[url('/images/void-bg-vin.png')] bg-cover bg-center opacity-30 grayscale group-hover:grayscale-0 transition-all duration-1000 scale-105 group-hover:scale-100" />
+                 <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-transparent to-transparent" />
+                 <div className="relative z-10 text-center">
+                    <span className="text-white font-black italic text-6xl tracking-tighter">VOID</span>
+                    <p className="text-cyan-500 font-mono text-[10px] tracking-[0.5em] uppercase mt-2">Energy_Systems</p>
+                 </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* SECTION 3: SIGNATURE SPOTLIGHT */}
         {products && (() => {
           const voidZero = products.find(p => p.name.toLowerCase().includes("void zero"));
@@ -164,7 +210,7 @@ const Home = () => {
           <div className="max-w-7xl mx-auto px-6 text-center">
              <div className="grid md:grid-cols-2 gap-6">
               {COLLECTIONS.map((collection) => (
-                <Link to={`/series/${collection.id}`} key={collection.id} className="group block relative h-[280px] rounded-3xl overflow-hidden border border-white/10 bg-[#0a0a0a]">
+                <Link preventScrollReset to={`/series/${collection.id}`} key={collection.id} className="group block relative h-[280px] rounded-3xl overflow-hidden border border-white/10 bg-[#0a0a0a]">
                   <div className="absolute inset-0 bg-gradient-to-br from-white/[0.02] to-transparent group-hover:from-cyan-500/10 transition-colors duration-500" />
                   <div className="relative z-10 h-full p-10 flex flex-col justify-between text-left">
                     <span className="font-mono text-[9px] uppercase text-cyan-500 border border-cyan-500/20 px-3 py-1 rounded-full w-fit">{collection.subtitle}</span>

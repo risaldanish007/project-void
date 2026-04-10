@@ -7,6 +7,7 @@ import { useLocation, useNavigate, Link } from "react-router-dom";
 import { replaceCart } from "../store/cartSlice";
 import { store } from "../store/store";
 import { toast } from 'react-toastify'; // Added for official feedback
+import Banned from "./Banned";
 
 const Login = () => {
     const [email, setEmail] = useState('');
@@ -31,7 +32,10 @@ const Login = () => {
 
                   // NEW: THE BAN CHECK
                     if (user.status === 'Banned') {
-                        toast.error("ACCESS_DENIED: Your account has been decommissioned by an Administrator.");
+                        // 1. You MUST log them into Redux so the Banned page knows they are banned
+                        dispatch(setCredentials(user));
+                        
+                        navigate("/banned");
                         return; // Halt the login sequence immediately
                     }
                     // --- THE MERGE PROTOCOL STARTS HERE ---

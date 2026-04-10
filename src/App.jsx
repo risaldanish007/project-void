@@ -28,13 +28,19 @@ import PublicLayout from "./components/layout/PublicLayout";
 import OrderManifest from "./admin/pages/OrderManifest";
 import UserDirectory from "./admin/pages/UserDirectory";
 import Banned from "./pages/Banned";
+import { useSecurityCheck } from "./hooks/useSecurityCheck";
+import { useManageCrosstab } from "./hooks/useManageCrossTab";
+import OrderDetail from "./pages/OrderDetails";
+import PublicRoute from "./components/common/PublicRoute";
 
 
 function App() {
   useCartSync();
+  useSecurityCheck();
+  useManageCrosstab();
 
   return (
-    <Router>
+    <>
       <ScrollToTop />
       
       {/* IMPORTANT: We removed <Navbar />, <Footer />, and the padding <div> from here.
@@ -42,11 +48,16 @@ function App() {
       */}
 
       <Routes>
+        <Route path="/banned" element={<Banned />} />
+
+        <Route element={<PublicRoute />}>
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+      </Route>
+        
         {/* --- 1. PUBLIC SECTOR (Has Navbar, Footer, & Padding) --- */}
         <Route element={<PublicLayout />}>
           <Route path="/" element={<Home />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
           <Route path="/series/:seriesId" element={<SeriesPage />} />
           <Route path="/product/:id" element={<ProductDetail />} />
           <Route path="/cart" element={<Cart />} />
@@ -56,10 +67,11 @@ function App() {
 
           {/* Protected Customer Routes */}
           <Route element={<ProtectedRoute />}>
+            <Route path="/order/:id" element={<OrderDetail />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="/checkout" element={<Checkout />} />
             <Route path="/success" element={<Success />} />
-            <Route path="/banned" element={<Banned />} />
+            
           </Route>
         </Route>
 
@@ -89,7 +101,7 @@ function App() {
   }
   bodyClassName={() => "flex items-center text-white"} // Ensures the text is strictly white
 />
-    </Router>
+    </>
   );
 }
 export default App;

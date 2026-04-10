@@ -1,3 +1,4 @@
+import React from 'react';
 import { useQuery } from '@tanstack/react-query';
 import apiClient from '../api/apiClient';
 import { Link } from 'react-router-dom';
@@ -17,13 +18,21 @@ const Variants = () => {
     }
   });
 
+  // Filtering out the primary hero product (p1) to show alternative variants
   const variants = products?.filter(p => p.id !== 'p1') || [];
 
   const handleAddToCart = (e, product) => {
     e.preventDefault();
     e.stopPropagation();
+
+    // Inventory Guard
+    if (product.stock <= 0) {
+      toast.error("ERROR: Inventory depleted.");
+      return;
+    }
+
     dispatch(addToCart(product));
-    toast.success(`${product.name} // LOCKED`, {
+    toast.success(`${product.name} // SECURED`, {
       position: "bottom-right",
       autoClose: 1000,
       theme: "dark",
@@ -31,85 +40,104 @@ const Variants = () => {
     });
   };
 
-  if (isLoading) return <div className="min-h-screen flex items-center justify-center bg-black font-mono text-[9px] text-white/40 tracking-[0.5em] animate-pulse">SYNCHRONIZING_VARIANTS...</div>;
+  if (isLoading) return (
+    <div className="min-h-screen flex items-center justify-center bg-black font-mono text-[10px] text-white/60 tracking-[0.5em] animate-pulse font-black uppercase">
+      Synchronizing_Product_Matrix...
+    </div>
+  );
 
   return (
-    <div className="min-h-screen bg-[#050505] pt-32 pb-20 px-6 font-light">
+    <div className="min-h-screen bg-[#050505] pt-32 pb-20 px-6">
       
-      {/* Tightened Container */}
       <div className="max-w-5xl mx-auto relative z-10">
         
-        {/* Minimal Header */}
-        <header className="mb-12 border-l border-white/10 pl-6">
-          <span className="text-green-500 font-mono text-[9px] tracking-[0.4em] uppercase block mb-2">
-            Protocol_Series // Trinity
+        {/* Header Section */}
+        <header className="mb-12 border-l-2 border-white/20 pl-6">
+          <span className="text-green-500 font-mono text-[10px] tracking-[0.4em] uppercase block mb-2 font-black">
+            Official_Product_Series // Trinity
           </span>
           <h1 className="text-4xl md:text-5xl font-black uppercase italic tracking-tighter text-white">
-            Variant <span className="text-white/20 font-thin not-italic">Matrix</span>
+            Product <span className="text-white/30 font-thin not-italic">Variants</span>
           </h1>
         </header>
 
-        {/* Compact Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {variants.map((variant, index) => (
-            <motion.div
-              key={variant.id}
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.1 }}
-              className="group"
-            >
-              <Link to={`/product/${variant.id}`} className="block">
-                <div className="bg-white/[0.03] border border-white/5 rounded-2xl p-6 hover:border-green-500/40 hover:bg-white/[0.05] transition-all duration-300">
-                  
-                  {/* Top Identifier */}
-                  <div className="flex justify-between items-center mb-6">
-                    <span className="text-white/20 font-mono text-[9px] tracking-widest">
-                      TRINITY_V{index + 1}
-                    </span>
-                    <span className="text-[9px] font-mono text-green-500/40 uppercase">Active</span>
-                  </div>
+        {/* Variant Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {variants.map((variant, index) => {
+            const isOutOfStock = variant.stock <= 0;
+            const isLowStock = variant.stock > 0 && variant.stock <= 5;
 
-                  {/* Compact Image footprint */}
-                  <div className="h-44 mb-6 flex items-center justify-center relative">
-                    <img 
-                      src={variant.image} 
-                      alt={variant.name} 
-                      className="h-full w-auto object-contain grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500 ease-out"
-                    />
-                  </div>
-
-                  {/* Scaled-down Typography */}
-                  <div className="mb-6">
-                    <h2 className="text-xl font-black uppercase italic tracking-tight text-white mb-2">
-                      {variant.name}
-                    </h2>
-                    <p className="text-gray-500 text-[10px] font-mono uppercase tracking-wider leading-relaxed line-clamp-2">
-                      {variant.description}
-                    </p>
-                  </div>
-
-                  {/* Action Bar */}
-                  <div className="flex items-center justify-between pt-4 border-t border-white/5">
-                    <span className="text-lg font-thin tracking-tighter text-white/70">${variant.price}</span>
+            return (
+              <motion.div
+                key={variant.id}
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.1 }}
+                className="group"
+              >
+                <Link to={`/product/${variant.id}`} className="block">
+                  <div className={`bg-white/[0.03] border rounded-3xl p-8 transition-all duration-500 
+                    ${isOutOfStock 
+                      ? 'border-white/5 opacity-60 grayscale' 
+                      : 'border-white/10 hover:border-green-500/40 hover:bg-white/[0.05]'}`}>
                     
-                    <button 
-                      onClick={(e) => handleAddToCart(e, variant)}
-                      className="bg-white text-black h-9 px-5 rounded-full font-bold text-[9px] uppercase tracking-widest hover:bg-green-500 hover:text-white transition-all active:scale-95"
-                    >
-                      Acquire
-                    </button>
+                    {/* Status Identification */}
+                    <div className="flex justify-between items-center mb-8">
+                      <span className="text-white/40 font-mono text-[9px] tracking-widest font-black uppercase">
+                        VRSN_0{index + 1}
+                      </span>
+                      <span className={`text-[9px] font-mono uppercase font-black tracking-widest 
+                        ${isOutOfStock ? 'text-red-500' : isLowStock ? 'text-yellow-500' : 'text-green-500'}`}>
+                        {isOutOfStock ? '[ Sold_Out ]' : isLowStock ? '[ Limited ]' : '[ Available ]'}
+                      </span>
+                    </div>
+
+                    {/* Image Footer Print */}
+                    <div className="h-52 mb-8 flex items-center justify-center relative">
+                      <img 
+                        src={variant.image} 
+                        alt={variant.name} 
+                        className={`h-full w-auto object-contain transition-all duration-700 ease-out 
+                          ${!isOutOfStock && 'group-hover:scale-110 group-hover:drop-shadow-[0_0_30px_rgba(34,211,238,0.2)]'}`}
+                      />
+                    </div>
+
+                    {/* Typography */}
+                    <div className="mb-8">
+                      <h2 className="text-2xl font-black uppercase italic tracking-tight text-white mb-3">
+                        {variant.name}
+                      </h2>
+                      <p className="text-white/50 text-[11px] font-mono uppercase tracking-wider leading-relaxed line-clamp-2 font-bold">
+                        {variant.description}
+                      </p>
+                    </div>
+
+                    {/* Commercial Actions */}
+                    <div className="flex items-center justify-between pt-6 border-t border-white/10">
+                      <span className="text-xl font-black tracking-tighter text-white">${variant.price}</span>
+                      
+                      <button 
+                        disabled={isOutOfStock}
+                        onClick={(e) => handleAddToCart(e, variant)}
+                        className={`h-10 px-6 rounded-xl font-black text-[10px] uppercase tracking-widest transition-all active:scale-95
+                          ${isOutOfStock 
+                            ? 'bg-white/5 text-white/20 border border-white/5 cursor-not-allowed' 
+                            : 'bg-white text-black hover:bg-green-500 hover:text-white'}`}
+                      >
+                        {isOutOfStock ? 'Sold Out' : 'Add to Cart'}
+                      </button>
+                    </div>
                   </div>
-                </div>
-              </Link>
-            </motion.div>
-          ))}
+                </Link>
+              </motion.div>
+            );
+          })}
         </div>
 
-        {/* Footer Status */}
-        <footer className="mt-16 text-center">
-          <p className="text-[8px] font-mono text-white/5 uppercase tracking-[1em]">
-            Deployment_Ready // 002-004
+        {/* System Status Footer */}
+        <footer className="mt-20 border-t border-white/5 pt-10 text-center">
+          <p className="text-[10px] font-mono text-white/20 uppercase tracking-[0.8em] font-black">
+            Inventory_Registry // Trinity_Series_Live
           </p>
         </footer>
       </div>
