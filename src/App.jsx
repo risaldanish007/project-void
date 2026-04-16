@@ -8,7 +8,7 @@ import Home from "./pages/Home";
 import ProductDetail from "./pages/ProductDetail";
 import Cart from "./pages/Cart";
 import Checkout from "./pages/Checkout";
-import Success from "./pages/Success";
+import Success from "./pages/Success"; 
 import Variants from "./pages/variants";
 import SeriesPage from "./pages/SeriesPage";
 import ScrollToTop from "./utils/ScrollToTop";

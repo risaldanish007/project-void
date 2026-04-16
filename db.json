@@ -7,41 +7,9 @@
       "password": "1234567890",
       "role": "admin",
       "cart": {
-        "items": [
-          {
-            "id": "p1",
-            "name": "VOID ZERO",
-            "description": "VOID ZERO is our baseline for performance. A clean 200mg caffeine strike balanced with L-Theanine, built to maintain focus without the jitter or crash. No sugar, no noise — just steady uptime for coding, creating, and long-form thinking.",
-            "price": 25,
-            "image": "/images/void-zero.png",
-            "imageBg": "/imagesBg/void-prod-bg.png",
-            "category": "Energy",
-            "series": "VOID",
-            "ingredients": [
-              {
-                "name": "Alpha-GPC",
-                "benefit": "Neural Speed"
-              },
-              {
-                "name": "Lion's Mane",
-                "benefit": "Cognitive Clarity"
-              },
-              {
-                "name": "L-Theanine",
-                "benefit": "Zero Jitters"
-              },
-              {
-                "name": "Natural Caffeine",
-                "benefit": "Sustained Power"
-              }
-            ],
-            "stock": 13,
-            "quantity": 2,
-            "totalItemPrice": 50
-          }
-        ],
-        "totalQuantity": 2,
-        "totalPrice": 50
+        "items": [],
+        "totalQuantity": 0,
+        "totalPrice": 0
       },
       "status": "Active"
     },
@@ -67,41 +35,9 @@
       "role": "customer",
       "status": "Active",
       "cart": {
-        "items": [
-          {
-            "id": "p1",
-            "name": "VOID ZERO",
-            "description": "VOID ZERO is our baseline for performance. A clean 200mg caffeine strike balanced with L-Theanine, built to maintain focus without the jitter or crash. No sugar, no noise — just steady uptime for coding, creating, and long-form thinking.",
-            "price": 25,
-            "image": "/images/void-zero.png",
-            "imageBg": "/imagesBg/void-prod-bg.png",
-            "category": "Energy",
-            "series": "VOID",
-            "ingredients": [
-              {
-                "name": "Alpha-GPC",
-                "benefit": "Neural Speed"
-              },
-              {
-                "name": "Lion's Mane",
-                "benefit": "Cognitive Clarity"
-              },
-              {
-                "name": "L-Theanine",
-                "benefit": "Zero Jitters"
-              },
-              {
-                "name": "Natural Caffeine",
-                "benefit": "Sustained Power"
-              }
-            ],
-            "stock": 13,
-            "quantity": 1,
-            "totalItemPrice": 25
-          }
-        ],
-        "totalQuantity": 1,
-        "totalPrice": 25
+        "items": [],
+        "totalQuantity": 0,
+        "totalPrice": 0
       },
       "orders": []
     },
@@ -180,7 +116,7 @@
           "benefit": "Sustained Power"
         }
       ],
-      "stock": 13
+      "stock": "50"
     },
     {
       "id": "p2",
@@ -206,7 +142,7 @@
           "benefit": "Stress Resilience"
         }
       ],
-      "stock": 37
+      "stock": "50"
     },
     {
       "id": "p3",
@@ -232,7 +168,7 @@
           "benefit": "Emotional Balance"
         }
       ],
-      "stock": 0
+      "stock": "50"
     },
     {
       "id": "p4",
@@ -258,7 +194,7 @@
           "benefit": "ATP Synthesis"
         }
       ],
-      "stock": 23
+      "stock": "50"
     },
     {
       "id": "p5",
@@ -283,7 +219,7 @@
           "benefit": "Vasodilation"
         }
       ],
-      "stock": 2
+      "stock": "50"
     },
     {
       "id": "p6",
@@ -308,7 +244,7 @@
           "benefit": "Cellular Volume"
         }
       ],
-      "stock": 2
+      "stock": "50"
     },
     {
       "id": "p7",
@@ -333,7 +269,7 @@
           "benefit": "Maximum Pump"
         }
       ],
-      "stock": 0
+      "stock": "50"
     },
     {
       "id": "p8",
@@ -358,7 +294,7 @@
           "benefit": "Systemic Health"
         }
       ],
-      "stock": 44
+      "stock": "50"
     },
     {
       "id": "p9",
@@ -383,7 +319,7 @@
           "benefit": "Neural Brake"
         }
       ],
-      "stock": 0
+      "stock": "050"
     },
     {
       "id": "p10",
@@ -408,7 +344,7 @@
           "benefit": "Muscle Recovery"
         }
       ],
-      "stock": 0
+      "stock": "050"
     },
     {
       "id": "p11",
@@ -433,7 +369,7 @@
           "benefit": "Dopamine Support"
         }
       ],
-      "stock": 3
+      "stock": "50"
     },
     {
       "id": "40db",
@@ -2285,6 +2221,224 @@
         "zip": "673301",
         "instructions": "",
         "fullFormatted": "Chaliyam, Calicut, Kerala - 673301"
+      }
+    },
+    {
+      "id": "VOID-5144",
+      "userId": "ca98",
+      "customerName": "max",
+      "customerEmail": "max@gmail.com",
+      "items": [
+        {
+          "id": "p1",
+          "name": "VOID ZERO",
+          "description": "VOID ZERO is our baseline for performance. A clean 200mg caffeine strike balanced with L-Theanine, built to maintain focus without the jitter or crash. No sugar, no noise — just steady uptime for coding, creating, and long-form thinking.",
+          "price": 25,
+          "image": "/images/void-zero.png",
+          "imageBg": "/imagesBg/void-prod-bg.png",
+          "category": "Energy",
+          "series": "VOID",
+          "ingredients": [
+            {
+              "name": "Alpha-GPC",
+              "benefit": "Neural Speed"
+            },
+            {
+              "name": "Lion's Mane",
+              "benefit": "Cognitive Clarity"
+            },
+            {
+              "name": "L-Theanine",
+              "benefit": "Zero Jitters"
+            },
+            {
+              "name": "Natural Caffeine",
+              "benefit": "Sustained Power"
+            }
+          ],
+          "stock": 13,
+          "quantity": 13,
+          "totalItemPrice": 325
+        },
+        {
+          "id": "p2",
+          "name": "FLOW IO",
+          "flavor": "Yuzu (Japanese Citrus)",
+          "description": "Mental Focus redefined. FLOW IO utilizes Yuzu extracts and advanced nootropics to sharpen cognitive precision. Designed for deep-state flow where the world disappears and the work becomes effortless.",
+          "price": 30,
+          "image": "/images/flow-io.png",
+          "imageBg": "/imagesBg/io-bg.png",
+          "category": "Focus",
+          "series": "FLOW",
+          "ingredients": [
+            {
+              "name": "Yuzu Extract",
+              "benefit": "Sensory Sharpness"
+            },
+            {
+              "name": "Bacopa Monnieri",
+              "benefit": "Memory Retention"
+            },
+            {
+              "name": "Rhodiola Rosea",
+              "benefit": "Stress Resilience"
+            }
+          ],
+          "stock": 37,
+          "quantity": 33,
+          "totalItemPrice": 990
+        },
+        {
+          "id": "p4",
+          "name": "FLOW AXIS",
+          "flavor": "Pomelo",
+          "description": "Cognitive Balance. AXIS acts as the stabilizer for your mental equilibrium, preventing burn-out and ensuring your brain operates at its natural frequency throughout the day.",
+          "price": 30,
+          "image": "/images/flow-axis.png",
+          "imageBg": "/imagesBg/axis-bg.png",
+          "category": "Focus",
+          "series": "FLOW",
+          "ingredients": [
+            {
+              "name": "Ginkgo Biloba",
+              "benefit": "Blood Flow"
+            },
+            {
+              "name": "Panax Ginseng",
+              "benefit": "Vitality"
+            },
+            {
+              "name": "B-Complex",
+              "benefit": "ATP Synthesis"
+            }
+          ],
+          "stock": 23,
+          "quantity": 23,
+          "totalItemPrice": 690
+        },
+        {
+          "id": "p6",
+          "name": "FORM CORE",
+          "description": "Pure Power. CORE is a high-density formula built for the daily athlete. It provides the physiological foundation to sustain high-intensity training and physical stress.",
+          "price": 35,
+          "image": "/images/form-core.png",
+          "imageBg": "/imagesBg/form-bg.png",
+          "category": "Performance",
+          "series": "FORM",
+          "ingredients": [
+            {
+              "name": "Betaine Anhydrous",
+              "benefit": "Force Production"
+            },
+            {
+              "name": "Electrolyte Matrix",
+              "benefit": "Hydration"
+            },
+            {
+              "name": "Taurine",
+              "benefit": "Cellular Volume"
+            }
+          ],
+          "stock": 2,
+          "quantity": 2,
+          "totalItemPrice": 70
+        },
+        {
+          "id": "p5",
+          "name": "FORM ION",
+          "description": "Physical Performance distilled. FORM IO bridges the gap between mind and muscle, providing the raw materials required for explosive movement and high-cadence endurance.",
+          "price": "20",
+          "image": "/images/form-ion.png",
+          "imageBg": "/imagesBg/form-bg.png",
+          "category": "Performance",
+          "series": "FORM",
+          "ingredients": [
+            {
+              "name": "Creatine Monohydrate",
+              "benefit": "Muscle Power"
+            },
+            {
+              "name": "Beta-Alanine",
+              "benefit": "Endurance Buffer"
+            },
+            {
+              "name": "Nitrosigine",
+              "benefit": "Vasodilation"
+            }
+          ],
+          "stock": 2,
+          "quantity": 2,
+          "totalItemPrice": "2020"
+        },
+        {
+          "id": "p8",
+          "name": "FORM BASE",
+          "description": "Daily Support system. BASE provides the essential micronutrients and minerals required to keep the human machine running smoothly in a modern, high-stress environment.",
+          "price": 20,
+          "image": "/images/form-base.png",
+          "imageBg": "/imagesBg/base-bg.png",
+          "category": "Essential",
+          "series": "FORM",
+          "ingredients": [
+            {
+              "name": "Vitamin D3/K2",
+              "benefit": "Bone & Heart"
+            },
+            {
+              "name": "Zinc Picolinate",
+              "benefit": "Immune Shield"
+            },
+            {
+              "name": "Omega-3",
+              "benefit": "Systemic Health"
+            }
+          ],
+          "stock": 44,
+          "quantity": 44,
+          "totalItemPrice": 880
+        },
+        {
+          "id": "p11",
+          "name": "ECHO",
+          "description": "Social Connection. ECHO enhances empathy and verbal fluidity, making it the perfect companion for networking, high-stakes communication, or deep social immersion.",
+          "price": 45,
+          "image": "/images/rite-echo.png",
+          "imageBg": "/imagesBg/echo-bg.png",
+          "category": "Social",
+          "series": "RITE",
+          "ingredients": [
+            {
+              "name": "Aniracetam",
+              "benefit": "Verbal Fluency"
+            },
+            {
+              "name": "Phenylethylamine",
+              "benefit": "Euphoric Spark"
+            },
+            {
+              "name": "L-Tyrosine",
+              "benefit": "Dopamine Support"
+            }
+          ],
+          "stock": 3,
+          "quantity": 3,
+          "totalItemPrice": 135
+        }
+      ],
+      "total": 3130,
+      "paymentId": "pay_Sc7KGhsRZlhOty",
+      "status": "pending",
+      "date": "2026-04-11",
+      "shippingAddress": {
+        "firstName": "max",
+        "lastName": "verstappen",
+        "phone": "9787654321",
+        "address": "st louis",
+        "city": "new hamsphere",
+        "state": "ajax",
+        "zip": "123456",
+        "instructions": "",
+        "fullFormatted": "st louis, new hamsphere, ajax - 123456"
       }
     }
   ],

@@ -7,7 +7,6 @@ import CanViewer from '../components/layout/CanModel';
 import { COLLECTIONS } from '../utils/constants';
 import { toast } from 'react-toastify';
 
-
 const Home = () => {
   const dispatch = useDispatch();
   const cartItems = useSelector((state) => state.cart.items);
@@ -25,7 +24,6 @@ const Home = () => {
     const currentQty = itemInCart ? itemInCart.quantity : 0;
     const availableStock = Number(product.countInStock ?? product.stock ?? 0);
 
-    // Rule: Unique ID prevents toast stacking/spam
     const TOAST_ID = "void-cart-signal";
 
     if (availableStock <= 0 || currentQty >= availableStock) {
@@ -47,9 +45,13 @@ const Home = () => {
     });
   };
 
-  // --- INITIAL SYSTEM LOADER ---
+  // --- INLINE SYSTEM LOADER ---
   if (isLoading) return (
-    <VoidLoader/>
+    <div className="h-screen w-full bg-black flex items-center justify-center">
+      <span className="text-zinc-500 font-mono text-[10px] uppercase tracking-[0.6em] animate-pulse">
+        Syncing Signal...
+      </span>
+    </div>
   );
 
   if (isError) return <div className="text-center mt-20 text-red-500 font-mono uppercase tracking-widest text-xs">Signal lost.</div>;
@@ -113,7 +115,7 @@ const Home = () => {
           </div>
         </section>
 
-        {/* SECTION 2.5: BRAND INTELLIGENCE (NEW) */}
+        {/* SECTION 2.5: BRAND INTELLIGENCE */}
         <section className="relative py-32 bg-[#0a0a0a] border-t border-white/5 overflow-hidden">
           <div className="max-w-7xl mx-auto px-6 relative z-10">
             <div className="grid md:grid-cols-2 gap-16 items-center">
@@ -121,7 +123,7 @@ const Home = () => {
                 <span className="text-cyan-500 font-mono text-[10px] tracking-[0.4em] uppercase mb-6 block">Corporate Intelligence</span>
                 <h2 className="text-4xl md:text-5xl font-black text-white uppercase italic tracking-tighter mb-8">
                   Not just an energy drink.<br/>
-                  A <span className="text-white/40">performance state.</span>
+                  <span className="text-white/40">A performance state.</span>
                 </h2>
                 <div className="space-y-6 text-gray-400 font-light leading-relaxed">
                   <p>

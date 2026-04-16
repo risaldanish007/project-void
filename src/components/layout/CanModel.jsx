@@ -1,3 +1,4 @@
+import React, { useRef, useEffect, useState, Suspense } from "react";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import {
   useGLTF,
@@ -6,7 +7,6 @@ import {
   AdaptiveEvents,
   useProgress,
 } from "@react-three/drei";
-import { useRef, useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
 function CanModel({ shouldAnimate }) {
@@ -122,7 +122,10 @@ export default function CanViewer() {
           <Environment preset="studio" resolution={200} />
           <directionalLight position={[5, 5, 9]} intensity={1.5} />
 
-          <ModelWithReady onReady={() => setReady(true)} />
+          {/* THE FIX: Local Suspense protects the Canvas on reload */}
+          <Suspense fallback={null}>
+            <ModelWithReady onReady={() => setReady(true)} />
+          </Suspense>
         </Canvas>
       </div>
     </motion.div>
