@@ -22,7 +22,7 @@ const Navbar = () => {
   const handleLogout = () => {
     dispatch(logout());
     setIsMenuOpen(false);
-    navigate("/login");
+    navigate("/");
   };
 
   const closeMenu = () => setIsMenuOpen(false);

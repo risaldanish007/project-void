@@ -111,7 +111,7 @@ export default function CanViewer() {
     >
       <div className="absolute inset-0 h-screen w-full pointer-events-none">
         <Canvas
-          camera={{ position: [0, 0, 6] }}
+          camera={{ position: [0, 0, 7] }}
           dpr={[1, 1.5]}
           gl={{ antialias: false, powerPreference: "high-performance" }}
         >

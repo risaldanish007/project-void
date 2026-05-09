@@ -71,7 +71,6 @@ function App() {
             <Route path="/profile" element={<Profile />} />
             <Route path="/checkout" element={<Checkout />} />
             <Route path="/success" element={<Success />} />
-            
           </Route>
         </Route>
 

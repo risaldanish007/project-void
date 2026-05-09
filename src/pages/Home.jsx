@@ -209,20 +209,39 @@ const Home = () => {
 
         {/* SECTION 4: VARIANTS */}
         <section id="variants" className="py-32 bg-[#050505] border-t border-white/5">
-          <div className="max-w-7xl mx-auto px-6 text-center">
-             <div className="grid md:grid-cols-2 gap-6">
-              {COLLECTIONS.map((collection) => (
-                <Link preventScrollReset to={`/series/${collection.id}`} key={collection.id} className="group block relative h-[280px] rounded-3xl overflow-hidden border border-white/10 bg-[#0a0a0a]">
-                  <div className="absolute inset-0 bg-gradient-to-br from-white/[0.02] to-transparent group-hover:from-cyan-500/10 transition-colors duration-500" />
-                  <div className="relative z-10 h-full p-10 flex flex-col justify-between text-left">
-                    <span className="font-mono text-[9px] uppercase text-cyan-500 border border-cyan-500/20 px-3 py-1 rounded-full w-fit">{collection.subtitle}</span>
-                    <h3 className="text-4xl font-black uppercase italic text-white group-hover:translate-x-2 transition-transform">{collection.title}</h3>
-                  </div>
-                </Link>
-              ))}
+  <div className="max-w-7xl mx-auto px-6 text-center">
+    <div className="grid md:grid-cols-2 gap-6">
+      {COLLECTIONS.map((collection) => (
+        <Link 
+          preventScrollReset 
+          to={`/series/${collection.id}`} 
+          key={collection.id} 
+          className="group block relative h-[280px] rounded-3xl overflow-hidden border border-white/10 bg-[#0a0a0a]"
+        >
+          {/* Hover Gradient Effect */}
+          <div className="absolute inset-0 bg-gradient-to-br from-white/[0.02] to-transparent group-hover:from-cyan-500/10 transition-colors duration-500" />
+          
+          <div className="relative z-10 h-full p-10 flex flex-col justify-between text-left">
+            {/* Top Section: Badge and Glimpse */}
+            <div className="space-y-4">
+              <span className="font-mono text-[9px] uppercase text-cyan-500 border border-cyan-500/20 px-3 py-1 rounded-full w-fit block">
+                {collection.subtitle}
+              </span>
+              <p className="text-white/50 text-sm leading-relaxed max-w-[80%] line-clamp-3 group-hover:text-white/70 transition-colors">
+                {collection.description}
+              </p>
             </div>
+
+            {/* Bottom Section: Title */}
+            <h3 className="text-4xl font-black uppercase italic text-white group-hover:translate-x-2 transition-transform duration-300">
+              {collection.title}
+            </h3>
           </div>
-        </section>
+        </Link>
+      ))}
+    </div>
+  </div>
+</section>
       </div>
     </div>
   );

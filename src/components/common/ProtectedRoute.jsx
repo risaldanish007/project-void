@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
 import { Navigate, Outlet, useLocation } from "react-router-dom";
 
-const ProtectedRoute = ({ adminOnly = false }) => {
+const   ProtectedRoute = ({ adminOnly = false }) => {
   const { isAuthenticated, loading, user } = useSelector((state) => state.auth);
   const location = useLocation();
 

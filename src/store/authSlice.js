@@ -20,7 +20,7 @@ const authSlice = createSlice({
 
             localStorage.setItem('void_user', JSON.stringify(safeUser));
         },
-        logout: (state)=>{
+         logout: (state)=>{
             state.user = null;
             state.isAuthenticated = false;
             localStorage.removeItem('void_user');
